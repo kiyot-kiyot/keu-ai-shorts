@@ -1247,7 +1247,28 @@ updateStats();
 function updateStats(){
   ...
 }
+function incrementGenerations(){
+  try{
+    let count = Number(
+      localStorage.getItem("keuGenerations") || "0"
+    );
 
+    count++;
+
+    localStorage.setItem(
+      "keuGenerations",
+      String(count)
+    );
+
+    let el = document.getElementById("generationCount");
+
+    if(el){
+      el.textContent = count;
+    }
+  }catch(error){
+    console.warn("Generation counter error:", error);
+  }
+}
 </script>
 
 </body>
