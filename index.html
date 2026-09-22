@@ -2,289 +2,168 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09090f">
-<title>KEU AI SHORTS — Gold 2.1</title>
+<title>KEU AI SHORTS — Gold 2.2</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:#09090f;
-color:#fff;
-min-height:100vh;
+background:#09090f;color:#fff;min-height:100vh
 }
-
 button,input,textarea,select{font:inherit}
-
-button{
-cursor:pointer;
-border:0;
-}
-
-.app{
-max-width:900px;
-margin:auto;
-padding-bottom:100px;
-}
+button{cursor:pointer;border:0}
+.app{max-width:900px;margin:auto;padding-bottom:100px}
 
 header{
-position:sticky;
-top:0;
-z-index:50;
+position:sticky;top:0;z-index:50;
 background:rgba(9,9,15,.96);
 backdrop-filter:blur(14px);
 padding:18px 20px;
-border-bottom:1px solid #272733;
-display:flex;
-justify-content:space-between;
-align-items:center;
+border-bottom:1px solid #292936;
+display:flex;justify-content:space-between;align-items:center
 }
 
-.logo{
-font-size:24px;
-font-weight:900;
-}
-
-.logo span{
-color:#8b4dff;
-}
-
+.logo{font-size:24px;font-weight:900}
+.logo span{color:#974cff}
 .badge{
-border:1px solid #554070;
-padding:8px 14px;
-border-radius:20px;
-font-size:13px;
-color:#bfffdc;
+border:1px solid #5a4275;
+padding:8px 14px;border-radius:20px;
+font-size:13px;color:#bfffdc
 }
 
-main{
-padding:25px 18px;
-}
-
-h1{
-font-size:42px;
-line-height:1.05;
-margin:25px 0 12px;
-}
-
-.gradient{
-color:#974cff;
-}
-
-.subtitle{
-color:#aaa9b8;
-font-size:17px;
-line-height:1.6;
-margin-bottom:22px;
-}
+main{padding:25px 18px}
+h1{font-size:40px;line-height:1.05;margin:25px 0 12px}
+.gradient{color:#974cff}
+.subtitle{color:#aaa9b8;font-size:17px;line-height:1.6;margin-bottom:22px}
 
 .card{
-background:#111119;
-border:1px solid #2b2b38;
-border-radius:24px;
-padding:20px;
-margin-bottom:18px;
+background:#111119;border:1px solid #2b2b38;
+border-radius:24px;padding:20px;margin-bottom:18px
 }
 
 label{
-display:block;
-color:#aaa9b8;
-font-size:13px;
-font-weight:bold;
-margin:15px 0 8px;
-text-transform:uppercase;
-letter-spacing:.5px;
+display:block;color:#aaa9b8;font-size:13px;
+font-weight:bold;margin:15px 0 8px;
+text-transform:uppercase
 }
 
 textarea,input,select{
-width:100%;
-background:#09090f;
-color:#fff;
-border:1px solid #373744;
-border-radius:14px;
-padding:15px;
-outline:none;
+width:100%;background:#09090f;color:#fff;
+border:1px solid #373744;border-radius:14px;
+padding:15px;outline:none
 }
 
-textarea{
-min-height:150px;
-resize:vertical;
-}
+textarea{min-height:145px;resize:vertical}
+textarea:focus,input:focus,select:focus{border-color:#8b4dff}
 
-textarea:focus,input:focus,select:focus{
-border-color:#8b4dff;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
 .btn{
-width:100%;
-padding:16px;
-border-radius:15px;
-font-weight:800;
-margin-top:15px;
+width:100%;padding:15px;border-radius:15px;
+font-weight:800;margin-top:12px
 }
-
-.primary{
-background:linear-gradient(135deg,#7835ed,#9b4dff);
-color:white;
-}
-
-.secondary{
-background:#1b1b25;
-border:1px solid #383844;
-color:white;
-}
+.primary{background:linear-gradient(135deg,#7835ed,#9b4dff);color:white}
+.secondary{background:#1b1b25;border:1px solid #383844;color:white}
+.danger{color:#ff7777}
 
 .tools{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+display:grid;grid-template-columns:1fr 1fr;gap:12px
 }
-
 .tool{
-background:#111119;
-border:1px solid #2b2b38;
-border-radius:18px;
-padding:18px;
-color:white;
-text-align:left;
-min-height:115px;
+background:#111119;border:1px solid #2b2b38;
+border-radius:18px;padding:18px;color:white;
+text-align:left;min-height:115px
 }
+.tool:hover{border-color:#8b4dff}
+.tool-icon{font-size:25px;margin-bottom:9px}
+.tool-title{font-size:17px;font-weight:800}
+.tool-desc{font-size:13px;color:#9998a6;margin-top:6px;line-height:1.4}
 
-.tool:hover{
-border-color:#8b4dff;
-}
+.section-title{font-size:22px;margin:30px 0 14px}
 
-.tool-icon{
-font-size:25px;
-margin-bottom:10px;
-}
+.result{display:none}
+.result.show{display:block}
 
-.tool-title{
-font-size:17px;
-font-weight:800;
-}
-
-.tool-desc{
-font-size:13px;
-color:#9998a6;
-margin-top:6px;
-line-height:1.4;
-}
-
-.section-title{
-font-size:22px;
-margin:30px 0 14px;
-}
-
-.result{
-display:none;
-}
-
-.result.show{
-display:block;
-}
-
-.result h2{
-font-size:20px;
-color:#a66aff;
-margin-bottom:12px;
-}
+.result h2{font-size:20px;color:#a66aff;margin-bottom:12px}
 
 .output{
-background:#09090f;
-border:1px solid #30303c;
-border-radius:16px;
-padding:16px;
-margin-bottom:12px;
-line-height:1.6;
-white-space:pre-wrap;
+background:#09090f;border:1px solid #30303c;
+border-radius:16px;padding:16px;
+line-height:1.6;white-space:pre-wrap;
+margin-bottom:8px
 }
 
 .copy{
-background:#22222d;
-color:#fff;
-padding:9px 12px;
-border-radius:9px;
-float:right;
-font-size:12px;
+background:#242430;color:white;
+padding:8px 12px;border-radius:9px;
+font-size:12px;float:right
+}
+
+.choice{
+border:1px solid #30303c;
+background:#0d0d14;
+border-radius:15px;
+padding:15px;margin:9px 0;
+transition:.2s
+}
+.choice:hover{border-color:#974cff}
+.choice.selected{
+border-color:#974cff;
+box-shadow:0 0 0 1px #974cff inset
+}
+
+.choice button{
+background:transparent;color:white;
+width:100%;text-align:left
 }
 
 .item{
 border:1px solid #292936;
 background:#0d0d14;
 border-radius:14px;
-padding:14px;
-margin:9px 0;
+padding:14px;margin:9px 0
 }
 
-.item b{
-color:#fff;
-}
+.small{font-size:12px;color:#858492}
+.empty{text-align:center;padding:40px 15px;color:#888795}
 
 nav{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-z-index:100;
-background:rgba(10,10,16,.97);
-border-top:1px solid #292936;
-display:flex;
-justify-content:center;
+position:fixed;bottom:0;left:0;right:0;
+z-index:100;background:rgba(10,10,16,.97);
+border-top:1px solid #292936
 }
 
 .nav-inner{
-width:900px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
+max-width:900px;margin:auto;
+display:grid;grid-template-columns:repeat(4,1fr)
 }
 
 .nav-btn{
-background:transparent;
-color:#888795;
-padding:13px 5px;
-font-size:12px;
+background:transparent;color:#888795;
+padding:13px 5px;font-size:12px
+}
+.nav-btn.active{color:#a15cff}
+.nav-icon{font-size:22px;display:block;margin-bottom:3px}
+
+.hidden{display:none!important}
+
+.stat{
+display:flex;justify-content:space-between;
+padding:14px 0;border-bottom:1px solid #292936
 }
 
-.nav-btn.active{
-color:#a15cff;
-}
-
-.nav-icon{
-font-size:22px;
-display:block;
-margin-bottom:3px;
-}
-
-.hidden{
-display:none!important;
-}
-
-.empty{
-text-align:center;
-padding:40px 15px;
-color:#888795;
-}
-
-.small{
-font-size:12px;
-color:#858492;
-}
-
-.danger{
-color:#ff7777;
+.notice{
+background:#181222;
+border:1px solid #5b3c82;
+padding:13px;border-radius:14px;
+color:#cdb7e9;margin-bottom:15px;
+font-size:13px;line-height:1.5
 }
 
 @media(max-width:600px){
-h1{font-size:35px}
+h1{font-size:34px}
 .grid,.tools{grid-template-columns:1fr}
 main{padding:20px 14px}
 }
@@ -297,7 +176,7 @@ main{padding:20px 14px}
 
 <header>
 <div class="logo">KEU <span>AI SHORTS</span></div>
-<div class="badge">● FREE • GOLD 2.1</div>
+<div class="badge">● FREE • GOLD 2.2</div>
 </header>
 
 <main>
@@ -311,15 +190,15 @@ WHAT ARE YOU<br>
 </h1>
 
 <p class="subtitle">
-Turn one idea into a complete short-form content kit.
-Hooks, titles, script, scenes, captions and AI prompts.
+One idea → titles → hooks → script → scenes → visuals → voiceover → captions.
 </p>
 
 <div class="card">
 
-<label>Your idea</label>
+<label>Your Idea</label>
 
-<textarea id="idea" placeholder="Example: A mysterious light appears above a small Philippine town..."></textarea>
+<textarea id="idea"
+placeholder="Example: A mysterious light appears above a small Philippine town..."></textarea>
 
 <button class="btn primary" onclick="generateKit()">
 ✨ CREATE CONTENT KIT
@@ -334,13 +213,13 @@ Hooks, titles, script, scenes, captions and AI prompts.
 <button class="tool" onclick="showPage('createPage')">
 <div class="tool-icon">🎬</div>
 <div class="tool-title">Make a Short</div>
-<div class="tool-desc">Turn an idea into a complete short.</div>
+<div class="tool-desc">Build a complete short-form kit.</div>
 </button>
 
 <button class="tool" onclick="hookLab()">
 <div class="tool-icon">🔥</div>
 <div class="tool-title">Hook Lab</div>
-<div class="tool-desc">Generate attention-grabbing hooks.</div>
+<div class="tool-desc">Create powerful opening hooks.</div>
 </button>
 
 <button class="tool" onclick="ideaGenerator()">
@@ -349,10 +228,10 @@ Hooks, titles, script, scenes, captions and AI prompts.
 <div class="tool-desc">Find your next content idea.</div>
 </button>
 
-<button class="tool" onclick="showPage('createPage')">
-<div class="tool-icon">🧰</div>
-<div class="tool-title">Creator Tools</div>
-<div class="tool-desc">Build your content faster.</div>
+<button class="tool" onclick="showPage('projectsPage')">
+<div class="tool-icon">📁</div>
+<div class="tool-title">My Projects</div>
+<div class="tool-desc">Open your saved creations.</div>
 </button>
 
 </div>
@@ -372,7 +251,9 @@ Customize your content kit before generating.
 <div class="card">
 
 <label>Topic / Idea</label>
-<textarea id="createIdea" placeholder="Enter your story or content idea..."></textarea>
+
+<textarea id="createIdea"
+placeholder="Enter your story or content idea..."></textarea>
 
 <div class="grid">
 
@@ -441,7 +322,7 @@ Customize your content kit before generating.
 </select>
 
 <button class="btn primary" onclick="generateFromCreate()">
-✨ GENERATE GOLD CONTENT KIT
+✨ GENERATE GOLD 2.2 KIT
 </button>
 
 </div>
@@ -449,16 +330,20 @@ Customize your content kit before generating.
 </section>
 
 
-<!-- RESULTS -->
+<!-- RESULT -->
 <section id="resultPage" class="result">
 
 <h1>YOUR <span class="gradient">CONTENT KIT</span></h1>
 
 <p class="subtitle" id="resultInfo"></p>
 
+<div class="notice">
+💡 <b>Creator Mode:</b> Tap a title or hook to select it. You can also edit your script, voiceover and caption before sharing.
+</div>
+
 <div class="card">
 
-<h2>🎯 TITLE OPTIONS</h2>
+<h2>🎯 5 SMART TITLES</h2>
 <div id="titles"></div>
 
 </div>
@@ -472,9 +357,10 @@ Customize your content kit before generating.
 
 <div class="card">
 
-<h2>🎬 SHORT SCRIPT</h2>
+<h2>🎬 SCRIPT</h2>
 <button class="copy" onclick="copyText('script')">COPY</button>
-<div id="script" class="output"></div>
+
+<textarea id="script"></textarea>
 
 </div>
 
@@ -489,7 +375,8 @@ Customize your content kit before generating.
 
 <h2>🖼️ AI VISUAL PROMPT</h2>
 <button class="copy" onclick="copyText('visual')">COPY</button>
-<div id="visual" class="output"></div>
+
+<textarea id="visual"></textarea>
 
 </div>
 
@@ -497,30 +384,46 @@ Customize your content kit before generating.
 
 <h2>🎙️ VOICEOVER</h2>
 <button class="copy" onclick="copyText('voiceover')">COPY</button>
-<div id="voiceover" class="output"></div>
+
+<textarea id="voiceover"></textarea>
 
 </div>
 
 <div class="card">
 
 <h2>📱 CAPTION</h2>
-<div id="caption" class="output"></div>
+<textarea id="caption"></textarea>
 
-<h2>🏷️ HASHTAGS</h2>
-<div id="hashtags" class="output"></div>
+<h2 style="margin-top:20px">🏷️ HASHTAGS</h2>
+<textarea id="hashtags"></textarea>
 
-</div>
-
-<div class="card">
-
-<h2>💬 PINNED COMMENT</h2>
-<div id="pinned" class="output"></div>
+<h2 style="margin-top:20px">💬 PINNED COMMENT</h2>
+<textarea id="pinned"></textarea>
 
 </div>
 
 <div class="grid">
-<button class="btn secondary" onclick="saveProject()">💾 SAVE PROJECT</button>
-<button class="btn primary" onclick="showPage('createPage')">♻️ CREATE AGAIN</button>
+
+<button class="btn primary" onclick="saveProject()">
+💾 SAVE PROJECT
+</button>
+
+<button class="btn secondary" onclick="makeAnother()">
+♻️ ANOTHER VERSION
+</button>
+
+</div>
+
+<div class="grid">
+
+<button class="btn secondary" onclick="shareKit()">
+📤 SHARE KIT
+</button>
+
+<button class="btn secondary" onclick="exportKit()">
+📄 EXPORT KIT
+</button>
+
 </div>
 
 </section>
@@ -532,7 +435,7 @@ Customize your content kit before generating.
 <h1>MY <span class="gradient">PROJECTS</span></h1>
 
 <p class="subtitle">
-Your saved content kits are stored on this device.
+Your saved creator projects are stored on this device.
 </p>
 
 <div id="projectList"></div>
@@ -549,30 +452,22 @@ Your saved content kits are stored on this device.
 
 <h2>🚀 KEU AI SHORTS</h2>
 
-<p class="subtitle">
-AI Content Factory — Gold 2.1
-</p>
+<p class="subtitle">AI Content Factory • Gold 2.2</p>
 
-<div class="item">
-<b>Current Plan</b><br>
-FREE
+<div class="stat">
+<span>Plan</span>
+<b>FREE</b>
 </div>
 
-<div class="item">
-<b>Generation</b><br>
-Text-based creator tools
+<div class="stat">
+<span>Projects</span>
+<b id="projectCount">0</b>
 </div>
 
-<div class="item">
-<b>Coming Soon</b><br>
-🎬 AI Video Generation<br>
-🖼️ AI Image Generation<br>
-🎙️ AI Voice Generation
+<div class="stat">
+<span>Content Kits Created</span>
+<b id="generationCount">0</b>
 </div>
-
-<p class="small">
-Gold 2.1 is designed to validate user demand before adding expensive AI generation APIs.
-</p>
 
 </div>
 
@@ -580,11 +475,24 @@ Gold 2.1 is designed to validate user demand before adding expensive AI generati
 
 <h2>💡 Feedback</h2>
 
-<textarea id="feedback" placeholder="Tell us what feature you want next..."></textarea>
+<textarea id="feedback"
+placeholder="What feature should KEU AI SHORTS build next?"></textarea>
 
 <button class="btn primary" onclick="sendFeedback()">
 SEND FEEDBACK
 </button>
+
+</div>
+
+<div class="card">
+
+<h2>🚀 COMING SOON</h2>
+
+<div class="item">🎬 AI Video Generation</div>
+<div class="item">🖼️ AI Image Generation</div>
+<div class="item">🎙️ AI Voice Generation</div>
+<div class="item">☁️ Cloud Projects</div>
+<div class="item">👥 Creator Accounts</div>
 
 </div>
 
@@ -595,61 +503,70 @@ SEND FEEDBACK
 </div>
 
 
+<!-- NAVIGATION -->
+
 <nav>
+
 <div class="nav-inner">
 
-<button class="nav-btn active" onclick="showPage('homePage',this)">
+<button class="nav-btn active"
+onclick="showPage('homePage',this)">
 <span class="nav-icon">🏠</span>
 Home
 </button>
 
-<button class="nav-btn" onclick="showPage('createPage',this)">
+<button class="nav-btn"
+onclick="showPage('createPage',this)">
 <span class="nav-icon">✨</span>
 Create
 </button>
 
-<button class="nav-btn" onclick="showPage('projectsPage',this)">
+<button class="nav-btn"
+onclick="showPage('projectsPage',this)">
 <span class="nav-icon">📁</span>
 Projects
 </button>
 
-<button class="nav-btn" onclick="showPage('profilePage',this)">
+<button class="nav-btn"
+onclick="showPage('profilePage',this)">
 <span class="nav-icon">👤</span>
 Profile
 </button>
 
 </div>
+
 </nav>
 
 
 <script>
 
 let currentKit=null;
+let selectedTitle="";
+let selectedHook="";
 
 
-/* PAGE SYSTEM */
+/* PAGE */
 
 function showPage(id,btn){
 
-document.querySelectorAll("main>section").forEach(x=>{
-x.classList.add("hidden");
-});
+document.querySelectorAll("main>section")
+.forEach(x=>x.classList.add("hidden"));
 
 document.getElementById(id).classList.remove("hidden");
 
-document.querySelectorAll(".nav-btn").forEach(x=>{
-x.classList.remove("active");
-});
+document.querySelectorAll(".nav-btn")
+.forEach(x=>x.classList.remove("active"));
 
-if(btn) btn.classList.add("active");
+if(btn)btn.classList.add("active");
 
-if(id==="projectsPage") loadProjects();
+if(id==="projectsPage")loadProjects();
+if(id==="profilePage")updateStats();
 
 window.scrollTo(0,0);
 }
 
 
-/* GENERATOR */
+/* GENERATE */
 
 function generateKit(){
 
@@ -678,7 +595,7 @@ function generateFromCreate(){
 let idea=document.getElementById("createIdea").value.trim();
 
 if(!idea){
-alert("Lagyan muna natin ng idea master sis 🔥");
+alert("Lagyan muna natin ng idea 🔥");
 return;
 }
 
@@ -693,16 +610,18 @@ document.getElementById("tone").value
 }
 
 
-function generate(idea,genre,duration,language,platform,tone){
+function generate(
+idea,genre,duration,language,platform,tone
+){
 
 let clean=idea.replace(/[.!?]+$/,"");
 
 let titles=[
 "The Mystery Behind "+clean,
-"What Really Happened?",
-"The Story Nobody Expected",
-"The Truth Behind The Mystery",
-"Nobody Was Ready For This"
+"What Really Happened When "+clean,
+"Nobody Expected This Story",
+"The Truth Behind This Story",
+"The Detail Everyone Missed"
 ];
 
 let hooks=[
@@ -710,11 +629,10 @@ let hooks=[
 "What if everything you knew about this was wrong?",
 "The strange part is what happened next...",
 "At first, nobody thought it was important...",
-"But then something completely unexpected happened..."
+"But then everything changed..."
 ];
 
 let script=
-
 "[HOOK]\n"+
 hooks[0]+"\n\n"+
 "[SETUP]\n"+
@@ -724,7 +642,7 @@ hooks[0]+"\n\n"+
 "The details became stranger as more information appeared. "+
 "Different possibilities started spreading, but nobody could completely explain what was happening.\n\n"+
 "[REVEAL]\n"+
-"The most interesting part is that the mystery still leaves room for questions.\n\n"+
+"The most interesting detail changed the way people looked at the story.\n\n"+
 "[ENDING]\n"+
 "So what do you think really happened?";
 
@@ -755,38 +673,11 @@ text:"Ask viewers what they think."
 }
 ];
 
-document.getElementById("resultInfo").innerText=
-genre+" • "+duration+" • "+language+" • "+platform+" • "+tone;
-
-document.getElementById("titles").innerHTML=
-titles.map((x,i)=>
-`<div class="item"><b>${i+1}. ${escapeHTML(x)}</b></div>`
-).join("");
-
-document.getElementById("hooks").innerHTML=
-hooks.map((x,i)=>
-`<div class="item"><b>${i+1}.</b> ${escapeHTML(x)}</div>`
-).join("");
-
-document.getElementById("script").innerText=script;
-
-document.getElementById("scenes").innerHTML=
-scenes.map((s,i)=>
-`<div class="item">
-<b>${s.name}</b><br><br>
-<strong>Visual:</strong> ${escapeHTML(s.visual)}<br>
-<strong>Camera:</strong> ${escapeHTML(s.camera)}<br>
-<strong>Direction:</strong> ${escapeHTML(s.text)}
-</div>`
-).join("");
-
 let visual=
-`Cinematic vertical 9:16 scene about ${clean}. `+
-`${tone} atmosphere, realistic lighting, detailed environment, `+
-`dramatic composition, professional short-form video aesthetic, `+
-`high detail, natural depth, cinematic camera, realistic textures.`;
-
-document.getElementById("visual").innerText=visual;
+"Cinematic vertical 9:16 scene about "+clean+
+". "+tone+" atmosphere, realistic lighting, detailed environment, "+
+"dramatic composition, professional short-form video aesthetic, "+
+"high detail, natural depth, cinematic camera, realistic textures.";
 
 let voice=
 "[PAUSE]\n"+
@@ -797,34 +688,91 @@ clean+" became the center of attention when something unusual was discovered.\n\
 "And until there is a clear answer, one question remains...\n\n"+
 "What do YOU think happened?";
 
-document.getElementById("voiceover").innerText=voice;
-
-document.getElementById("caption").innerText=
-clean+" — a story that raises more questions than answers. What do you think?";
-
-document.getElementById("hashtags").innerText=
-"#KEUAISHORTS #Shorts #Storytelling #Mystery #ViralContent #ContentCreator";
-
-document.getElementById("pinned").innerText=
-"What do you think really happened? 👇 Tell me your theory.";
-
 currentKit={
-idea,
-genre,
-duration,
-language,
-platform,
-tone,
-titles,
-hooks,
-script,
-scenes,
-visual,
-voice
+idea,genre,duration,language,platform,tone,
+titles,hooks,script,scenes,visual,voice
 };
 
-showPage("resultPage");
+selectedTitle=titles[0];
+selectedHook=hooks[0];
 
+document.getElementById("resultInfo").innerText=
+genre+" • "+duration+" • "+language+
+" • "+platform+" • "+tone;
+
+renderTitles(titles);
+renderHooks(hooks);
+
+document.getElementById("script").value=script;
+document.getElementById("visual").value=visual;
+document.getElementById("voiceover").value=voice;
+
+document.getElementById("caption").value=
+clean+" — a story that raises more questions than answers. What do you think?";
+
+document.getElementById("hashtags").value=
+"#KEUAISHORTS #Shorts #Storytelling #Mystery #ViralContent #ContentCreator";
+
+document.getElementById("pinned").value=
+"What do you think really happened? 👇 Tell me your theory.";
+
+incrementGenerations();
+
+showPage("resultPage");
+}
+
+
+/* TITLES */
+
+function renderTitles(titles){
+
+document.getElementById("titles").innerHTML=
+titles.map((x,i)=>`
+
+<div class="choice ${x===selectedTitle?"selected":""}">
+<button onclick="selectTitle(${i})">
+<b>${i+1}. ${escapeHTML(x)}</b>
+</button>
+</div>
+
+`).join("");
+}
+
+
+function selectTitle(i){
+
+selectedTitle=currentKit.titles[i];
+
+renderTitles(currentKit.titles);
+
+alert("Title selected! 🎯");
+}
+
+
+/* HOOKS */
+
+function renderHooks(hooks){
+
+document.getElementById("hooks").innerHTML=
+hooks.map((x,i)=>`
+
+<div class="choice ${x===selectedHook?"selected":""}">
+<button onclick="selectHook(${i})">
+<b>${i+1}.</b> ${escapeHTML(x)}
+</button>
+</div>
+
+`).join("");
+}
+
+
+function selectHook(i){
+
+selectedHook=currentKit.hooks[i];
+
+renderHooks(currentKit.hooks);
+
+alert("Hook selected! 🔥");
 }
 
 
@@ -832,11 +780,12 @@ showPage("resultPage");
 
 function copyText(id){
 
-let text=document.getElementById(id).innerText;
+let el=document.getElementById(id);
+let text=el.value!==undefined?el.value:el.innerText;
 
 navigator.clipboard.writeText(text)
 .then(()=>alert("Copied! 🔥"))
-.catch(()=>alert("Select and copy the text manually."));
+.catch(()=>alert("Copy failed. Select the text manually."));
 }
 
 
@@ -849,17 +798,29 @@ alert("Generate a kit first.");
 return;
 }
 
-let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
+currentKit.script=document.getElementById("script").value;
+currentKit.visual=document.getElementById("visual").value;
+currentKit.voice=document.getElementById("voiceover").value;
+currentKit.caption=document.getElementById("caption").value;
+currentKit.hashtags=document.getElementById("hashtags").value;
+currentKit.pinned=document.getElementById("pinned").value;
+currentKit.selectedTitle=selectedTitle;
+currentKit.selectedHook=selectedHook;
+currentKit.date=new Date().toLocaleString();
 
-projects.unshift({
-...currentKit,
-date:new Date().toLocaleString()
-});
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
-localStorage.setItem("keuProjects",JSON.stringify(projects.slice(0,50)));
+projects.unshift(currentKit);
+
+localStorage.setItem(
+"keuProjects",
+JSON.stringify(projects.slice(0,50))
+);
 
 alert("Project saved! 💾🔥");
 
+updateStats();
 }
 
 
@@ -867,14 +828,15 @@ alert("Project saved! 💾🔥");
 
 function loadProjects(){
 
-let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
 let box=document.getElementById("projectList");
 
 if(!projects.length){
 
-box.innerHTML=
-`<div class="card empty">
+box.innerHTML=`
+<div class="card empty">
 📁<br><br>
 No saved projects yet.<br>
 Create your first content kit.
@@ -883,74 +845,196 @@ Create your first content kit.
 return;
 }
 
-box.innerHTML=projects.map((p,i)=>
-`<div class="card">
-<h2>${escapeHTML(p.titles[0])}</h2>
-<p class="small">${escapeHTML(p.date)}</p>
-<p class="subtitle">${escapeHTML(p.idea)}</p>
+box.innerHTML=projects.map((p,i)=>`
 
-<button class="btn secondary" onclick="openProject(${i})">
+<div class="card">
+
+<h2>${escapeHTML(
+p.selectedTitle||p.titles[0]
+)}</h2>
+
+<p class="small">${escapeHTML(p.date||"")}</p>
+
+<p class="subtitle">
+${escapeHTML(p.idea)}
+</p>
+
+<button class="btn primary"
+onclick="openProject(${i})">
 OPEN PROJECT
 </button>
 
-<button class="btn secondary danger" onclick="deleteProject(${i})">
-DELETE
+<button class="btn secondary"
+onclick="duplicateProject(${i})">
+♻️ DUPLICATE
 </button>
-</div>`
-).join("");
+
+<button class="btn secondary danger"
+onclick="deleteProject(${i})">
+🗑️ DELETE
+</button>
+
+</div>
+
+`).join("");
 }
 
 
 function openProject(i){
 
-let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
 let p=projects[i];
 
 currentKit=p;
-
-document.getElementById("script").innerText=p.script;
-document.getElementById("visual").innerText=p.visual;
-document.getElementById("voiceover").innerText=p.voice;
-
-document.getElementById("titles").innerHTML=
-p.titles.map((x,i)=>
-`<div class="item"><b>${i+1}. ${escapeHTML(x)}</b></div>`
-).join("");
-
-document.getElementById("hooks").innerHTML=
-p.hooks.map((x,i)=>
-`<div class="item"><b>${i+1}.</b> ${escapeHTML(x)}</div>`
-).join("");
-
-document.getElementById("scenes").innerHTML=
-p.scenes.map(s=>
-`<div class="item">
-<b>${escapeHTML(s.name)}</b><br><br>
-<strong>Visual:</strong> ${escapeHTML(s.visual)}<br>
-<strong>Camera:</strong> ${escapeHTML(s.camera)}<br>
-<strong>Direction:</strong> ${escapeHTML(s.text)}
-</div>`
-).join("");
+selectedTitle=p.selectedTitle||p.titles[0];
+selectedHook=p.selectedHook||p.hooks[0];
 
 document.getElementById("resultInfo").innerText=
-p.genre+" • "+p.duration+" • "+p.language+" • "+p.platform;
+p.genre+" • "+p.duration+" • "+
+p.language+" • "+p.platform;
+
+renderTitles(p.titles);
+renderHooks(p.hooks);
+
+document.getElementById("script").value=p.script||"";
+document.getElementById("visual").value=p.visual||"";
+document.getElementById("voiceover").value=p.voice||"";
+document.getElementById("caption").value=p.caption||"";
+document.getElementById("hashtags").value=p.hashtags||"";
+document.getElementById("pinned").value=p.pinned||"";
 
 showPage("resultPage");
 }
 
 
+function duplicateProject(i){
+
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
+
+let copy=JSON.parse(JSON.stringify(projects[i]));
+
+copy.date=new Date().toLocaleString();
+
+projects.unshift(copy);
+
+localStorage.setItem(
+"keuProjects",
+JSON.stringify(projects.slice(0,50))
+);
+
+alert("Project duplicated! ♻️");
+
+loadProjects();
+}
+
+
 function deleteProject(i){
 
-if(!confirm("Delete this project?")) return;
+if(!confirm("Delete this project?"))return;
 
-let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
 projects.splice(i,1);
 
-localStorage.setItem("keuProjects",JSON.stringify(projects));
+localStorage.setItem(
+"keuProjects",
+JSON.stringify(projects)
+);
 
 loadProjects();
+}
+
+
+/* ANOTHER VERSION */
+
+function makeAnother(){
+
+if(!currentKit){
+showPage("createPage");
+return;
+}
+
+generate(
+currentKit.idea,
+currentKit.genre,
+currentKit.duration,
+currentKit.language,
+currentKit.platform,
+currentKit.tone
+);
+}
+
+
+/* SHARE */
+
+function buildShareText(){
+
+let script=document.getElementById("script").value;
+
+return(
+"KEU AI SHORTS — CONTENT KIT\n\n"+
+"TITLE:\n"+selectedTitle+
+"\n\nHOOK:\n"+selectedHook+
+"\n\nSCRIPT:\n"+script+
+"\n\nVISUAL PROMPT:\n"+
+document.getElementById("visual").value+
+"\n\nVOICEOVER:\n"+
+document.getElementById("voiceover").value+
+"\n\nCAPTION:\n"+
+document.getElementById("caption").value+
+"\n\nHASHTAGS:\n"+
+document.getElementById("hashtags").value
+);
+}
+
+
+function shareKit(){
+
+let text=buildShareText();
+
+if(navigator.share){
+
+navigator.share({
+title:"KEU AI SHORTS Content Kit",
+text:text
+}).catch(()=>{});
+
+}else{
+
+navigator.clipboard.writeText(text);
+
+alert("Content kit copied! 📤");
+}
+}
+
+
+/* EXPORT */
+
+function exportKit(){
+
+let text=buildShareText();
+
+let blob=new Blob([text],{
+type:"text/plain"
+});
+
+let url=URL.createObjectURL(blob);
+
+let a=document.createElement("a");
+
+a.href=url;
+a.download="KEU-AI-SHORTS-Content-Kit.txt";
+
+document.body.appendChild(a);
+a.click();
+a.remove();
+
+URL.revokeObjectURL(url);
+
 }
 
 
@@ -958,7 +1042,8 @@ loadProjects();
 
 function hookLab(){
 
-let idea=document.getElementById("idea").value.trim() ||
+let idea=
+document.getElementById("idea").value.trim()||
 "your next story";
 
 let hooks=[
@@ -974,23 +1059,47 @@ let hooks=[
 "The truth may be stranger than the story..."
 ];
 
-document.getElementById("resultInfo").innerText="HOOK LAB • 10 OPTIONS";
+currentKit={
+idea,
+genre:"Hook Lab",
+duration:"N/A",
+language:"English",
+platform:"All Platforms",
+tone:"Creator"
+};
 
-document.getElementById("titles").innerHTML="";
-document.getElementById("hooks").innerHTML=
-hooks.map((x,i)=>
-`<div class="item"><b>${i+1}.</b> ${escapeHTML(x)}</div>`
-).join("");
+currentKit.titles=[
+"Hook Pack for "+idea
+];
 
-document.getElementById("script").innerText=
+currentKit.hooks=hooks;
+
+selectedTitle=currentKit.titles[0];
+selectedHook=hooks[0];
+
+document.getElementById("resultInfo").innerText=
+"🔥 HOOK LAB • 10 OPTIONS";
+
+renderTitles(currentKit.titles);
+renderHooks(hooks);
+
+document.getElementById("script").value=
 "Use one of these hooks as the opening line of your next short.";
 
-document.getElementById("scenes").innerHTML="";
-document.getElementById("visual").innerText=
+document.getElementById("visual").value=
 "Create a cinematic opening visual that immediately represents the subject.";
 
-document.getElementById("voiceover").innerText=
+document.getElementById("voiceover").value=
 hooks[0]+"\n\n[PAUSE]\nContinue the story...";
+
+document.getElementById("caption").value=
+"Which hook would make you stop scrolling? 👀";
+
+document.getElementById("hashtags").value=
+"#KEUAISHORTS #HookLab #ContentCreator";
+
+document.getElementById("pinned").value=
+"Which hook is strongest? 👇";
 
 showPage("resultPage");
 }
@@ -1013,24 +1122,30 @@ let ideas=[
 "A discovery changes the way people understand an old story."
 ];
 
-document.getElementById("resultInfo").innerText="💡 IDEA GENERATOR";
+document.getElementById("resultInfo").innerText=
+"💡 IDEA GENERATOR";
 
 document.getElementById("titles").innerHTML=
-ideas.map((x,i)=>
-`<div class="item">
+ideas.map((x,i)=>`
+
+<div class="choice">
+<button onclick="useIdea(${i})">
 <b>${i+1}.</b> ${escapeHTML(x)}
-<br>
-<button class="btn secondary" onclick="useIdea(${i})">USE THIS IDEA</button>
-</div>`
-).join("");
+</button>
+</div>
+
+`).join("");
 
 document.getElementById("hooks").innerHTML="";
-document.getElementById("script").innerText=
+
+document.getElementById("script").value=
 "Choose an idea above and turn it into a complete content kit.";
 
-document.getElementById("scenes").innerHTML="";
-document.getElementById("visual").innerText="";
-document.getElementById("voiceover").innerText="";
+document.getElementById("visual").value="";
+document.getElementById("voiceover").value="";
+document.getElementById("caption").value="";
+document.getElementById("hashtags").value="";
+document.getElementById("pinned").value="";
 
 window.generatedIdeas=ideas;
 
@@ -1052,29 +1167,66 @@ showPage("createPage");
 
 function sendFeedback(){
 
-let feedback=document.getElementById("feedback").value.trim();
+let feedback=
+document.getElementById("feedback").value.trim();
 
 if(!feedback){
 alert("Write your feedback first master sis ❤️");
 return;
 }
 
-let list=JSON.parse(localStorage.getItem("keuFeedback")||"[]");
+let list=
+JSON.parse(localStorage.getItem("keuFeedback")||"[]");
 
 list.push({
 text:feedback,
 date:new Date().toLocaleString()
 });
 
-localStorage.setItem("keuFeedback",JSON.stringify(list));
+localStorage.setItem(
+"keuFeedback",
+JSON.stringify(list)
+);
 
 document.getElementById("feedback").value="";
 
-alert("Feedback saved! Thank you master sis ❤️🔥");
+alert("Feedback saved! ❤️🔥");
 }
 
 
-/* SECURITY / DISPLAY */
+/* STATS */
+
+function incrementGenerations(){
+
+let count=
+parseInt(localStorage.getItem("keuGenerations")||"0");
+
+count++;
+
+localStorage.setItem(
+"keuGenerations",
+count
+);
+}
+
+
+function updateStats(){
+
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
+
+let generations=
+localStorage.getItem("keuGenerations")||"0";
+
+document.getElementById("projectCount").innerText=
+projects.length;
+
+document.getElementById("generationCount").innerText=
+generations;
+}
+
+
+/* SAFE DISPLAY */
 
 function escapeHTML(str){
 
@@ -1090,7 +1242,7 @@ return String(str)
 /* START */
 
 window.addEventListener("load",()=>{
-document.getElementById("createIdea").value="";
+updateStats();
 });
 
 </script>
