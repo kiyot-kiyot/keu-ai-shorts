@@ -2,407 +2,227 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#09090f">
 <title>KEU AI SHORTS</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#09090f;
-  color:#fff;
-  min-height:100vh;
+font-family:Arial,Helvetica,sans-serif;
+background:#09090f;
+color:#fff;
+min-height:100vh
 }
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.app{max-width:760px;margin:auto;padding-bottom:90px}
 
-button,input,textarea,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.app{
-  max-width:760px;
-  margin:auto;
-  min-height:100vh;
-  padding-bottom:90px;
-}
-
-/* HEADER */
 .header{
-  padding:24px 20px 16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #20202b;
+padding:22px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #242431;
+position:sticky;
+top:0;
+background:#09090ff5;
+z-index:20
 }
-
-.logo{
-  font-size:22px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.logo span{
-  color:#8b5cf6;
-}
-
+.logo{font-size:22px;font-weight:900}
+.logo span{color:#8b5cf6}
 .status{
-  font-size:11px;
-  background:#171722;
-  border:1px solid #303044;
-  padding:7px 10px;
-  border-radius:20px;
-  color:#a7f3d0;
+padding:7px 11px;
+border:1px solid #343446;
+border-radius:20px;
+font-size:11px;
+color:#a7f3d0
 }
 
-/* MAIN */
-main{
-  padding:20px;
-}
+main{padding:20px}
+.screen{display:none}
+.screen.active{display:block}
 
-.screen{
-  display:none;
-}
+.hero{padding:25px 0 20px}
+.hero h1{font-size:34px;line-height:1.05;margin-bottom:12px}
+.hero h1 span{color:#8b5cf6}
+.hero p,.page-sub{color:#9999aa;line-height:1.5}
 
-.screen.active{
-  display:block;
-}
-
-.hero{
-  padding:25px 0 20px;
-}
-
-.hero h1{
-  font-size:34px;
-  line-height:1.05;
-  margin-bottom:12px;
-}
-
-.hero h1 span{
-  color:#8b5cf6;
-}
-
-.hero p{
-  color:#9999aa;
-  line-height:1.5;
-}
-
-/* INPUT */
-.card{
-  background:#11111a;
-  border:1px solid #292936;
-  border-radius:18px;
-  padding:18px;
-  margin-bottom:16px;
+.card,.result-block,.project,.tool-card{
+background:#11111a;
+border:1px solid #2a2a38;
+border-radius:17px;
+padding:17px;
+margin-bottom:14px
 }
 
 .label{
-  display:block;
-  font-size:13px;
-  color:#aaaaba;
-  margin-bottom:9px;
+display:block;
+font-size:12px;
+color:#aaaabc;
+margin-bottom:8px;
+text-transform:uppercase
 }
 
-textarea,
-input,
-select{
-  width:100%;
-  background:#09090f;
-  color:#fff;
-  border:1px solid #343444;
-  border-radius:12px;
-  padding:14px;
-  outline:none;
+textarea,input,select{
+width:100%;
+background:#09090f;
+border:1px solid #353546;
+border-radius:12px;
+padding:14px;
+color:#fff;
+outline:none
 }
-
-textarea{
-  min-height:130px;
-  resize:vertical;
-}
-
-textarea:focus,
-input:focus,
-select:focus{
-  border-color:#8b5cf6;
-}
+textarea{min-height:130px;resize:vertical}
+textarea:focus,input:focus,select:focus{border-color:#8b5cf6}
 
 .primary{
-  width:100%;
-  border:0;
-  border-radius:13px;
-  padding:15px;
-  margin-top:12px;
-  background:#7c3aed;
-  color:#fff;
-  font-weight:800;
-}
-
-.primary:active{
-  transform:scale(.98);
+width:100%;
+border:0;
+border-radius:13px;
+padding:15px;
+margin-top:12px;
+background:#7c3aed;
+color:#fff;
+font-weight:800
 }
 
 .secondary{
-  border:1px solid #39394a;
-  background:#171722;
-  color:#fff;
-  border-radius:11px;
-  padding:11px 14px;
+background:#181821;
+border:1px solid #39394b;
+border-radius:10px;
+padding:10px 13px;
+color:#fff
 }
 
-/* QUICK TOOLS */
-.section-title{
-  font-size:18px;
-  margin:24px 0 12px;
-}
+.page-title{font-size:28px;margin:10px 0 6px}
+.section-title{font-size:18px;margin:24px 0 12px}
 
 .tool-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px
 }
-
 .tool{
-  background:#11111a;
-  border:1px solid #292936;
-  border-radius:15px;
-  padding:16px;
-  text-align:left;
-  color:#fff;
+background:#11111a;
+border:1px solid #292936;
+border-radius:15px;
+padding:15px;
+text-align:left;
+color:#fff
 }
+.tool strong{display:block;margin-top:7px}
+.tool small{display:block;color:#858595;margin-top:5px}
 
-.tool strong{
-  display:block;
-  margin-top:8px;
-}
-
-.tool small{
-  display:block;
-  color:#858596;
-  margin-top:5px;
-  line-height:1.3;
-}
-
-.tool:hover{
-  border-color:#7c3aed;
-}
-
-/* CREATE */
 .form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px
 }
+.full{grid-column:1/-1}
 
-.full{
-  grid-column:1/-1;
-}
-
-.page-title{
-  font-size:28px;
-  margin:10px 0 6px;
-}
-
-.page-sub{
-  color:#8f8f9f;
-  margin-bottom:18px;
-}
-
-.result{
-  display:none;
-}
-
-.result.show{
-  display:block;
-}
-
-.result-block{
-  background:#0b0b12;
-  border:1px solid #292936;
-  border-radius:12px;
-  padding:14px;
-  margin-bottom:10px;
+.action-row{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-bottom:12px
 }
 
 .result-block h3{
-  font-size:14px;
-  color:#a78bfa;
-  margin-bottom:8px;
+font-size:14px;
+color:#a78bfa;
+margin-bottom:9px
 }
-
 .result-block p{
-  white-space:pre-wrap;
-  color:#ddd;
-  line-height:1.55;
+white-space:pre-wrap;
+line-height:1.55;
+color:#ddd
 }
 
-.action-row{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+.option{
+background:#0c0c13;
+border:1px solid #292936;
+border-radius:12px;
+padding:12px;
+margin:8px 0
 }
 
-/* TOOL CARDS */
-.big-tool{
-  background:#11111a;
-  border:1px solid #292936;
-  border-radius:17px;
-  padding:18px;
-  margin-bottom:12px;
+.scene{
+background:#0c0c13;
+border:1px solid #292936;
+border-radius:14px;
+padding:15px;
+margin-bottom:12px
+}
+.scene h3{color:#a78bfa;margin-bottom:10px}
+.scene div{margin:7px 0;color:#ddd;line-height:1.45}
+.scene b{color:#fff}
+
+.character{
+background:#0c0c13;
+border:1px solid #292936;
+border-radius:13px;
+padding:14px;
+margin-top:10px
 }
 
-.big-tool h3{
-  margin-bottom:6px;
-}
-
-.big-tool p{
-  color:#8f8f9f;
-  line-height:1.45;
-  margin-bottom:14px;
-}
-
-/* PROJECTS */
-.project{
-  background:#11111a;
-  border:1px solid #292936;
-  border-radius:14px;
-  padding:15px;
-  margin-bottom:10px;
-}
-
-.project h3{
-  margin-bottom:6px;
-}
-
-.project p{
-  color:#9292a1;
-  font-size:13px;
-}
-
-/* EMPTY */
-.empty{
-  text-align:center;
-  padding:35px 15px;
-  color:#858595;
-}
-
-/* BOTTOM NAV */
 .bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  max-width:760px;
-  margin:auto;
-  height:70px;
-  background:rgba(12,12,19,.97);
-  border-top:1px solid #282834;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  z-index:50;
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+max-width:760px;
+margin:auto;
+height:70px;
+background:#0c0c13f7;
+border-top:1px solid #292936;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+z-index:50
 }
-
 .nav-btn{
-  background:none;
-  border:0;
-  color:#777789;
-  font-size:11px;
+background:none;
+border:0;
+color:#777789;
+font-size:11px
 }
-
 .nav-btn .icon{
-  display:block;
-  font-size:20px;
-  margin-bottom:3px;
+display:block;
+font-size:20px;
+margin-bottom:3px
+}
+.nav-btn.active{color:#a78bfa}
+
+.empty{
+text-align:center;
+padding:35px 15px;
+color:#888899
 }
 
-.nav-btn.active{
-  color:#a78bfa;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  z-index:100;
-  padding:20px;
-  align-items:flex-end;
-  justify-content:center;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:100%;
-  max-width:700px;
-  background:#12121b;
-  border:1px solid #343444;
-  border-radius:20px;
-  padding:20px;
-  max-height:85vh;
-  overflow:auto;
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.close{
-  background:#252532;
-  border:0;
-  color:#fff;
-  width:35px;
-  height:35px;
-  border-radius:50%;
-}
-
-/* TOAST */
 .toast{
-  position:fixed;
-  bottom:85px;
-  left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:#fff;
-  color:#111;
-  padding:11px 16px;
-  border-radius:10px;
-  font-size:13px;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s;
-  z-index:200;
+position:fixed;
+bottom:85px;
+left:50%;
+transform:translateX(-50%) translateY(20px);
+background:#fff;
+color:#111;
+padding:11px 16px;
+border-radius:10px;
+font-size:13px;
+opacity:0;
+pointer-events:none;
+transition:.25s;
+z-index:100
 }
-
 .toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
+opacity:1;
+transform:translateX(-50%) translateY(0)
 }
 
-@media(max-width:420px){
-  .hero h1{
-    font-size:29px;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .full{
-    grid-column:auto;
-  }
+@media(max-width:430px){
+.hero h1{font-size:29px}
+.form-grid{grid-template-columns:1fr}
+.full{grid-column:auto}
 }
 </style>
 </head>
@@ -412,8 +232,8 @@ select:focus{
 <div class="app">
 
 <header class="header">
-  <div class="logo">KEU <span>AI SHORTS</span></div>
-  <div class="status">● FREE</div>
+<div class="logo">KEU <span>AI SHORTS</span></div>
+<div class="status">● FREE</div>
 </header>
 
 <main>
@@ -421,53 +241,50 @@ select:focus{
 <!-- HOME -->
 <section id="home" class="screen active">
 
-  <div class="hero">
-    <h1>WHAT ARE YOU<br><span>CREATING TODAY?</span></h1>
-    <p>
-      Turn one idea into a complete short-form content kit.
-      Create hooks, scripts, scenes, captions and more.
-    </p>
-  </div>
+<div class="hero">
+<h1>WHAT ARE YOU<br><span>CREATING TODAY?</span></h1>
+<p>One idea → a complete short-form content kit.</p>
+</div>
 
-  <div class="card">
-    <label class="label">YOUR IDEA</label>
-    <textarea id="homeIdea"
-      placeholder="Example: A mysterious light appears above a small Philippine town..."></textarea>
+<div class="card">
+<label class="label">Your Idea</label>
+<textarea id="homeIdea"
+placeholder="Example: A mysterious light appears above a small Philippine town..."></textarea>
 
-    <button class="primary" onclick="createFromHome()">
-      ✨ CREATE CONTENT
-    </button>
-  </div>
+<button class="primary" onclick="createFromHome()">
+✨ CREATE CONTENT
+</button>
+</div>
 
-  <h2 class="section-title">Quick Creator Tools</h2>
+<h2 class="section-title">Quick Creator Tools</h2>
 
-  <div class="tool-grid">
+<div class="tool-grid">
 
-    <button class="tool" onclick="openScreen('create')">
-      🎬
-      <strong>Make a Short</strong>
-      <small>Turn an idea into a short</small>
-    </button>
+<button class="tool" onclick="openScreen('create')">
+🎬
+<strong>Make a Short</strong>
+<small>Complete content kit</small>
+</button>
 
-    <button class="tool" onclick="openScreen('hooks')">
-      🔥
-      <strong>Hook Lab</strong>
-      <small>Create attention-grabbing hooks</small>
-    </button>
+<button class="tool" onclick="openScreen('hooks')">
+🔥
+<strong>Hook Lab</strong>
+<small>Scroll-stopping hooks</small>
+</button>
 
-    <button class="tool" onclick="openScreen('ideas')">
-      💡
-      <strong>Idea Generator</strong>
-      <small>Find your next content idea</small>
-    </button>
+<button class="tool" onclick="openScreen('ideas')">
+💡
+<strong>Idea Generator</strong>
+<small>Find new topics</small>
+</button>
 
-    <button class="tool" onclick="openScreen('tools')">
-      🧰
-      <strong>Creator Tools</strong>
-      <small>More content utilities</small>
-    </button>
+<button class="tool" onclick="openScreen('character')">
+👤
+<strong>Character Lock</strong>
+<small>Keep characters consistent</small>
+</button>
 
-  </div>
+</div>
 
 </section>
 
@@ -475,119 +292,110 @@ select:focus{
 <!-- CREATE -->
 <section id="create" class="screen">
 
-  <h1 class="page-title">🎬 Make a Short</h1>
-  <p class="page-sub">One idea → complete content kit.</p>
+<h1 class="page-title">🎬 Make a Short</h1>
+<p class="page-sub">Create a complete Creator Kit from one idea.</p>
 
-  <div class="card">
+<div class="card">
 
-    <label class="label">YOUR IDEA</label>
-    <textarea id="idea"
-      placeholder="Enter your story, topic, product, mystery, song, lesson, etc."></textarea>
+<label class="label">Your Idea</label>
 
-    <div class="form-grid">
+<textarea id="idea"
+placeholder="Enter your topic, story, product, mystery, lesson, song, etc."></textarea>
 
-      <div>
-        <label class="label">GENRE</label>
-        <select id="genre">
-          <option>Storytelling</option>
-          <option>Mystery</option>
-          <option>Horror</option>
-          <option>Romance</option>
-          <option>Motivation</option>
-          <option>Educational</option>
-          <option>Gaming</option>
-          <option>Music</option>
-          <option>Business</option>
-          <option>Sci-Fi</option>
-          <option>Fantasy</option>
-          <option>History</option>
-          <option>UFO / UAP</option>
-          <option>Comedy</option>
-        </select>
-      </div>
+<div class="form-grid">
 
-      <div>
-        <label class="label">DURATION</label>
-        <select id="duration">
-          <option>15 seconds</option>
-          <option selected>30 seconds</option>
-          <option>60 seconds</option>
-        </select>
-      </div>
+<div>
+<label class="label">Genre</label>
+<select id="genre">
+<option>Storytelling</option>
+<option>Mystery</option>
+<option>Horror</option>
+<option>Romance</option>
+<option>Motivation</option>
+<option>Educational</option>
+<option>Gaming</option>
+<option>Music</option>
+<option>Business</option>
+<option>Sci-Fi</option>
+<option>Fantasy</option>
+<option>History</option>
+<option>UFO / UAP</option>
+<option>Comedy</option>
+</select>
+</div>
 
-      <div>
-        <label class="label">LANGUAGE</label>
-        <select id="language">
-          <option>English</option>
-          <option>Tagalog</option>
-          <option>Bisaya</option>
-          <option>Taglish</option>
-        </select>
-      </div>
+<div>
+<label class="label">Duration</label>
+<select id="duration">
+<option>15 seconds</option>
+<option selected>30 seconds</option>
+<option>60 seconds</option>
+</select>
+</div>
 
-      <div>
-        <label class="label">PLATFORM</label>
-        <select id="platform">
-          <option>YouTube Shorts</option>
-          <option>TikTok</option>
-          <option>Facebook Reels</option>
-          <option>Instagram Reels</option>
-        </select>
-      </div>
+<div>
+<label class="label">Language</label>
+<select id="language">
+<option>English</option>
+<option>Tagalog</option>
+<option>Bisaya</option>
+<option>Taglish</option>
+</select>
+</div>
 
-      <div class="full">
-        <label class="label">TONE</label>
-        <select id="tone">
-          <option>Cinematic</option>
-          <option>Emotional</option>
-          <option>Funny</option>
-          <option>Dark</option>
-          <option>Inspirational</option>
-          <option>Suspenseful</option>
-          <option>Casual</option>
-          <option>Professional</option>
-        </select>
-      </div>
+<div>
+<label class="label">Platform</label>
+<select id="platform">
+<option>YouTube Shorts</option>
+<option>TikTok</option>
+<option>Facebook Reels</option>
+<option>Instagram Reels</option>
+</select>
+</div>
 
-    </div>
+<div class="full">
+<label class="label">Tone</label>
+<select id="tone">
+<option>Cinematic</option>
+<option>Emotional</option>
+<option>Funny</option>
+<option>Dark</option>
+<option>Inspirational</option>
+<option>Suspenseful</option>
+<option>Casual</option>
+<option>Professional</option>
+</select>
+</div>
 
-    <button class="primary" onclick="generateContent()">
-      ✨ GENERATE CONTENT KIT
-    </button>
+</div>
 
-  </div>
+<button class="primary" onclick="generateContent()">
+✨ GENERATE CREATOR KIT 2.0
+</button>
 
-  <div id="result" class="result">
+</div>
 
-    <div class="action-row" style="margin-bottom:12px;">
-      <button class="secondary" onclick="copyAll()">📋 Copy All</button>
-      <button class="secondary" onclick="saveProject()">💾 Save Project</button>
-      <button class="secondary" onclick="generateContent()">♻️ Regenerate</button>
-    </div>
-
-    <div id="resultContent"></div>
-
-  </div>
+<div id="result"></div>
 
 </section>
 
 
-<!-- HOOKS -->
+<!-- HOOK LAB -->
 <section id="hooks" class="screen">
 
-  <h1 class="page-title">🔥 Hook Lab</h1>
-  <p class="page-sub">Create hooks that make people stop scrolling.</p>
+<h1 class="page-title">🔥 Hook Lab</h1>
+<p class="page-sub">Generate different opening styles.</p>
 
-  <div class="card">
-    <label class="label">TOPIC</label>
-    <input id="hookTopic" placeholder="Example: Lost city discovered underwater">
+<div class="card">
+<label class="label">Topic</label>
+<input id="hookTopic" placeholder="Example: mysterious lights in the sky">
 
-    <button class="primary" onclick="generateHooks()">
-      🔥 GENERATE HOOKS
-    </button>
-  </div>
+<button class="primary" onclick="generateHooks()">
+🔥 GENERATE 10 HOOKS
+</button>
+</div>
 
-  <div id="hookResults"></div>
+<div id="hookResults"></div>
 
 </section>
 
@@ -595,98 +403,68 @@ select:focus{
 <!-- IDEAS -->
 <section id="ideas" class="screen">
 
-  <h1 class="page-title">💡 Idea Generator</h1>
-  <p class="page-sub">Find content ideas for your next short.</p>
+<h1 class="page-title">💡 Idea Generator</h1>
+<p class="page-sub">Find your next short-form content idea.</p>
 
-  <div class="card">
+<div class="card">
 
-    <label class="label">NICHE</label>
+<label class="label">Niche</label>
 
-    <select id="ideaNiche">
-      <option>Mystery</option>
-      <option>Horror</option>
-      <option>History</option>
-      <option>UFO / UAP</option>
-      <option>Motivation</option>
-      <option>Love</option>
-      <option>Gaming</option>
-      <option>Music</option>
-      <option>Business</option>
-      <option>Educational</option>
-    </select>
+<select id="ideaNiche">
+<option>Mystery</option>
+<option>Horror</option>
+<option>History</option>
+<option>UFO / UAP</option>
+<option>Motivation</option>
+<option>Love</option>
+<option>Gaming</option>
+<option>Music</option>
+<option>Business</option>
+<option>Educational</option>
+</select>
 
-    <button class="primary" onclick="generateIdeas()">
-      💡 FIND IDEAS
-    </button>
+<button class="primary" onclick="generateIdeas()">
+💡 GENERATE IDEAS
+</button>
 
-  </div>
+</div>
 
-  <div id="ideaResults"></div>
+<div id="ideaResults"></div>
 
 </section>
 
 
-<!-- TOOLS -->
-<section id="tools" class="screen">
+<!-- CHARACTER LOCK -->
+<section id="character" class="screen">
 
-  <h1 class="page-title">🧰 Creator Tools</h1>
-  <p class="page-sub">Your content workflow in one place.</p>
+<h1 class="page-title">👤 Character Lock</h1>
+<p class="page-sub">Create a reusable character profile for consistent prompts.</p>
 
-  <div class="big-tool">
-    <h3>♻️ Repurpose My Idea</h3>
-    <p>Turn one concept into multiple platform-ready posts.</p>
-    <button class="secondary" onclick="comingSoon('Repurpose Tool')">
-      OPEN TOOL
-    </button>
-  </div>
+<div class="card">
 
-  <div class="big-tool">
-    <h3>👤 Character Lock</h3>
-    <p>Create a reusable character description for consistent AI prompts.</p>
-    <button class="secondary" onclick="comingSoon('Character Lock')">
-      OPEN TOOL
-    </button>
-  </div>
+<label class="label">Character Name</label>
+<input id="charName" placeholder="Example: Alex">
 
-  <div class="big-tool">
-    <h3>📖 Start a Series</h3>
-    <p>Build characters, worlds and episodes for an ongoing story.</p>
-    <button class="secondary" onclick="comingSoon('Series Builder')">
-      OPEN TOOL
-    </button>
-  </div>
+<label class="label">Age</label>
+<input id="charAge" placeholder="Example: 28">
 
-  <div class="big-tool">
-    <h3>🖼️ Thumbnail Lab</h3>
-    <p>Create thumbnail concepts, headline text and image prompts.</p>
-    <button class="secondary" onclick="comingSoon('Thumbnail Lab')">
-      OPEN TOOL
-    </button>
-  </div>
+<label class="label">Appearance</label>
+<textarea id="charAppearance"
+placeholder="Hair, face, body, clothing, distinctive features..."></textarea>
 
-  <div class="big-tool">
-    <h3>🎙️ Voiceover Studio</h3>
-    <p>Create polished voiceover scripts with performance directions.</p>
-    <button class="secondary" onclick="comingSoon('Voiceover Studio')">
-      OPEN TOOL
-    </button>
-  </div>
+<label class="label">Personality</label>
+<input id="charPersonality" placeholder="Brave, mysterious, quiet...">
 
-  <div class="big-tool">
-    <h3>🌐 Language Studio</h3>
-    <p>Prepare content for English, Tagalog, Bisaya and Taglish audiences.</p>
-    <button class="secondary" onclick="comingSoon('Language Studio')">
-      OPEN TOOL
-    </button>
-  </div>
+<label class="label">World / Setting</label>
+<input id="charWorld" placeholder="Modern Philippine town...">
 
-  <div class="big-tool">
-    <h3>🎬 AI Video Generator</h3>
-    <p>Actual AI video generation will be added in a future phase.</p>
-    <button class="secondary" onclick="joinWaitlist()">
-      JOIN WAITLIST
-    </button>
-  </div>
+<button class="primary" onclick="saveCharacter()">
+👤 SAVE CHARACTER
+</button>
+
+</div>
+
+<div id="characterResult"></div>
 
 </section>
 
@@ -694,10 +472,10 @@ select:focus{
 <!-- PROJECTS -->
 <section id="projects" class="screen">
 
-  <h1 class="page-title">📁 My Projects</h1>
-  <p class="page-sub">Your saved content ideas and scripts.</p>
+<h1 class="page-title">📁 My Projects</h1>
+<p class="page-sub">Your saved Creator Kits.</p>
 
-  <div id="projectsList"></div>
+<div id="projectsList"></div>
 
 </section>
 
@@ -705,648 +483,686 @@ select:focus{
 <!-- PROFILE -->
 <section id="profile" class="screen">
 
-  <h1 class="page-title">👤 Profile</h1>
-  <p class="page-sub">KEU AI SHORTS Creator</p>
+<h1 class="page-title">👤 KEU Creator</h1>
 
-  <div class="card">
-    <h3>🚀 Phase 1</h3>
-    <p style="color:#999;margin-top:8px;line-height:1.5;">
-      AI Content Factory focused on helping creators turn
-      one idea into a complete short-form content kit.
-    </p>
-  </div>
+<div class="card">
+<h3>🚀 KEU AI SHORTS</h3>
+<p style="color:#999;margin-top:8px;line-height:1.5">
+AI Content Factory designed to turn one idea into
+a complete short-form content kit.
+</p>
+</div>
 
-  <div class="card">
-    <h3>🎬 Coming Soon</h3>
-    <p style="color:#999;margin-top:8px;line-height:1.5;">
-      Image generation, AI video generation, voice generation,
-      advanced creator tools and more.
-    </p>
-  </div>
+<div class="card">
+<h3>🎬 Future Features</h3>
+<p style="color:#999;margin-top:8px;line-height:1.6">
+Real AI generation<br>
+AI image generation<br>
+AI video generation<br>
+Voice generation<br>
+Cloud projects<br>
+Creator analytics<br>
+Premium tools
+</p>
+</div>
 
 </section>
 
 </main>
 
 
-<!-- NAV -->
 <nav class="bottom-nav">
 
-  <button class="nav-btn active" data-screen="home" onclick="openScreen('home')">
-    <span class="icon">🏠</span>
-    Home
-  </button>
+<button class="nav-btn active" data-screen="home"
+onclick="openScreen('home')">
+<span class="icon">🏠</span>Home
+</button>
 
-  <button class="nav-btn" data-screen="create" onclick="openScreen('create')">
-    <span class="icon">✨</span>
-    Create
-  </button>
+<button class="nav-btn" data-screen="create"
+onclick="openScreen('create')">
+<span class="icon">✨</span>Create
+</button>
 
-  <button class="nav-btn" data-screen="projects" onclick="openScreen('projects')">
-    <span class="icon">📁</span>
-    Projects
-  </button>
+<button class="nav-btn" data-screen="projects"
+onclick="openScreen('projects')">
+<span class="icon">📁</span>Projects
+</button>
 
-  <button class="nav-btn" data-screen="profile" onclick="openScreen('profile')">
-    <span class="icon">👤</span>
-    Profile
-  </button>
+<button class="nav-btn" data-screen="profile"
+onclick="openScreen('profile')">
+<span class="icon">👤</span>Profile
+</button>
 
 </nav>
 
 </div>
 
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h2 id="modalTitle">KEU AI SHORTS</h2>
-      <button class="close" onclick="closeModal()">×</button>
-    </div>
-
-    <div id="modalContent"></div>
-  </div>
-</div>
-
-
-<div id="toast" class="toast"></div>
-
-
 <script>
 
-let lastGenerated = "";
+let lastGenerated="";
 
-
-// NAVIGATION
 function openScreen(screen){
 
-  document.querySelectorAll(".screen").forEach(s=>{
-    s.classList.remove("active");
-  });
+document.querySelectorAll(".screen").forEach(x=>{
+x.classList.remove("active")
+});
 
-  const target=document.getElementById(screen);
+document.getElementById(screen).classList.add("active");
 
-  if(target){
-    target.classList.add("active");
-  }
+document.querySelectorAll(".nav-btn").forEach(x=>{
+x.classList.remove("active");
+if(x.dataset.screen===screen)x.classList.add("active");
+});
 
-  document.querySelectorAll(".nav-btn").forEach(btn=>{
-    btn.classList.remove("active");
+if(screen==="projects")loadProjects();
 
-    if(btn.dataset.screen===screen){
-      btn.classList.add("active");
-    }
-  });
-
-  if(screen==="projects"){
-    loadProjects();
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+window.scrollTo(0,0);
 }
 
 
-// HOME CREATE
 function createFromHome(){
 
-  const idea=document.getElementById("homeIdea").value.trim();
+const idea=document.getElementById("homeIdea").value.trim();
 
-  if(!idea){
-    showToast("Enter your idea first.");
-    return;
-  }
+if(!idea){
+showToast("Enter your idea first.");
+return;
+}
 
-  document.getElementById("idea").value=idea;
-
-  openScreen("create");
-
-  generateContent();
+document.getElementById("idea").value=idea;
+openScreen("create");
+generateContent();
 }
 
 
-// CONTENT GENERATOR
+function createTitleOptions(idea){
+
+let base=idea.replace(/[^\w\s]/gi,"").trim();
+
+if(base.length>45)base=base.substring(0,45);
+
+return[
+"The Mystery Behind "+base,
+"What Really Happened?",
+"The Story Nobody Expected",
+"This Changes Everything",
+"The Truth Behind The Mystery"
+];
+}
+
+
+function createHooks(idea){
+
+return[
+"Nobody expected this to happen...",
+"What if everything you know about this is wrong?",
+"The strange part is what happened next.",
+"Most people have never heard this story.",
+"Wait until you see what was discovered.",
+"Something about this story doesn't make sense.",
+"Here's the mystery nobody can explain.",
+"This may be one of the strangest stories you'll hear today.",
+"At first, everything looked normal...",
+"But then something completely unexpected happened."
+];
+}
+
+
+function generateScript(idea,duration,genre){
+
+if(duration==="15 seconds"){
+return`Imagine this...
+
+${idea}
+
+But something about it doesn't add up.
+
+And that's where the mystery begins.`;
+}
+
+if(duration==="60 seconds"){
+return`Imagine this...
+
+${idea}
+
+At first, everything seemed normal.
+
+But then people began noticing something unusual.
+
+Witnesses described what they saw, while others searched for an explanation.
+
+The deeper the story goes, the more questions appear.
+
+Was there a simple explanation?
+
+Or is there something we still don't understand?
+
+That's the mystery.
+
+What do you think really happened?`;
+}
+
+return`Imagine this...
+
+${idea}
+
+At first, nobody knew what was happening.
+
+Then something unusual changed the entire situation.
+
+People began asking questions, looking for answers and trying to understand what they had witnessed.
+
+But one detail made the story even more mysterious.
+
+And that's where things get interesting.
+
+What do YOU think happened?`;
+}
+
+
+function generateScenes(idea,tone){
+
+let scenes=[];
+
+for(let i=1;i<=6;i++){
+
+let names=[
+"HOOK",
+"SETUP",
+"DISCOVERY",
+"REVEAL",
+"CLIMAX",
+"ENDING"
+];
+
+scenes.push({
+name:names[i-1],
+visual:[
+"Opening cinematic shot connected to "+idea,
+"Establish the location and situation.",
+"Show the important discovery or unusual detail.",
+"Reveal the most interesting part of the story.",
+"Create the strongest dramatic moment.",
+"End with a memorable visual and CTA."
+][i-1],
+
+camera:[
+"Slow push-in",
+"Wide establishing shot",
+"Slow tracking movement",
+"Dramatic close-up",
+"Dynamic cinematic movement",
+"Slow zoom out"
+][i-1],
+
+image:
+"Vertical 9:16 cinematic image of "+idea+
+", "+tone.toLowerCase()+
+" atmosphere, realistic lighting, detailed environment, dramatic composition.",
+
+video:
+"Vertical 9:16 cinematic video showing "+idea+
+". "+tone+
+" mood, realistic motion, natural camera movement, detailed environment.",
+
+sfx:[
+"Low cinematic hit",
+"Ambient atmosphere",
+"Rising tension",
+"Dramatic impact",
+"Cinematic bass hit",
+"Soft ending ambience"
+][i-1]
+});
+
+}
+
+return scenes;
+}
+
+
 function generateContent(){
 
-  const idea=document.getElementById("idea").value.trim();
+const idea=document.getElementById("idea").value.trim();
 
-  if(!idea){
-    showToast("Enter your idea first.");
-    return;
-  }
+if(!idea){
+showToast("Enter your idea first.");
+return;
+}
 
-  const genre=document.getElementById("genre").value;
-  const duration=document.getElementById("duration").value;
-  const language=document.getElementById("language").value;
-  const platform=document.getElementById("platform").value;
-  const tone=document.getElementById("tone").value;
+const genre=document.getElementById("genre").value;
+const duration=document.getElementById("duration").value;
+const language=document.getElementById("language").value;
+const platform=document.getElementById("platform").value;
+const tone=document.getElementById("tone").value;
 
-  const title=createTitle(idea);
+const titles=createTitleOptions(idea);
+const hooks=createHooks(idea);
+const script=generateScript(idea,duration,genre);
+const scenes=generateScenes(idea,tone);
 
-  const hook=
-  "What if everything you thought you knew about this was wrong?";
+const voice=
+"[PAUSE]\n"+
+hooks[0]+
+"\n\n"+
+"[CALM] "+
+script+
+"\n\n[PAUSE]\n"+
+"What do you think?";
 
-  const script=
-  "Imagine this...\n\n"+
-  idea+
-  "\n\n"+
-  "But there's something most people don't know.\n\n"+
-  "The deeper you look, the more surprising the story becomes.\n\n"+
-  "And that's where things get interesting.\n\n"+
-  "Would you have expected this?";
+const caption=
+"One story. One mystery. One question.\n\n"+
+"Would you have expected this?\n\n"+
+"#KEUAISHORTS";
 
-  const scenes=
-  "SCENE 1 — HOOK\n"+
-  "Visual: Cinematic opening connected to the topic.\n"+
-  "Camera: Slow push-in.\n"+
-  "Text: Strong headline on screen.\n\n"+
-  "SCENE 2 — SETUP\n"+
-  "Visual: Establish the location, character or subject.\n"+
-  "Camera: Wide cinematic shot.\n\n"+
-  "SCENE 3 — REVEAL\n"+
-  "Visual: Show the most interesting detail.\n"+
-  "Camera: Slow dramatic movement.\n\n"+
-  "SCENE 4 — ENDING\n"+
-  "Visual: Final dramatic image.\n"+
-  "Camera: Slow zoom out.\n"+
-  "CTA: Ask viewers what they think.";
+const hashtags=
+"#KEUAISHORTS #Shorts #ContentCreator #AIContent #"+
+genre.replaceAll(" ","");
 
-  const visualPrompt=
-  "Cinematic vertical 9:16 scene about: "+
-  idea+
-  ". "+tone+
-  " atmosphere, realistic lighting, detailed environment, "+
-  "dramatic composition, professional short-form video aesthetic.";
+const pinned=
+"What do YOU think really happened? 👇";
 
-  const voice=
-  "[PAUSE]\n"+
-  hook+
-  "\n\n"+
-  "[CALM] "+
-  script;
+lastGenerated=
+"TITLE OPTIONS:\n"+
+titles.join("\n")+
+"\n\nHOOK OPTIONS:\n"+
+hooks.join("\n")+
+"\n\nSCRIPT:\n"+
+script+
+"\n\nVOICEOVER:\n"+
+voice+
+"\n\nCAPTION:\n"+
+caption+
+"\n\nHASHTAGS:\n"+
+hashtags+
+"\n\nPINNED COMMENT:\n"+
+pinned;
 
-  const description=
-  "A short-form "+genre+
-  " story about "+idea+
-  ". Created for "+platform+
-  " in "+language+".";
+let html=`
 
-  const hashtags=
-  "#KEUAISHORTS #Shorts #ContentCreator #"+genre.replaceAll(" ","")+" #AIContent";
+<div class="action-row">
+<button class="secondary" onclick="copyAll()">📋 Copy All</button>
+<button class="secondary" onclick="saveProject()">💾 Save Project</button>
+<button class="secondary" onclick="generateContent()">♻️ Regenerate</button>
+</div>
 
-  const pinned=
-  "What do YOU think? 👇 Tell me your theory in the comments.";
+<div class="result-block">
+<h3>🎯 5 TITLE OPTIONS</h3>
+${titles.map((x,i)=>`
+<div class="option">
+<b>${i+1}.</b> ${escapeHTML(x)}
+</div>`).join("")}
+</div>
 
-  lastGenerated=
-  "TITLE: "+title+
-  "\n\nHOOK:\n"+hook+
-  "\n\nSCRIPT:\n"+script+
-  "\n\nSCENES:\n"+scenes+
-  "\n\nVISUAL PROMPT:\n"+visualPrompt+
-  "\n\nVOICEOVER:\n"+voice+
-  "\n\nDESCRIPTION:\n"+description+
-  "\n\nHASHTAGS:\n"+hashtags+
-  "\n\nPINNED COMMENT:\n"+pinned;
+<div class="result-block">
+<h3>🔥 5 HOOK OPTIONS</h3>
+${hooks.slice(0,5).map((x,i)=>`
+<div class="option">
+<b>${i+1}.</b> ${escapeHTML(x)}
+</div>`).join("")}
+</div>
 
-  document.getElementById("resultContent").innerHTML=`
+<div class="result-block">
+<h3>📝 ${duration.toUpperCase()} SCRIPT</h3>
+<p>${escapeHTML(script)}</p>
+</div>
 
-    <div class="result-block">
-      <h3>🎯 TITLE</h3>
-      <p>${escapeHTML(title)}</p>
-    </div>
+<div class="result-block">
+<h3>🎙️ VOICEOVER</h3>
+<p>${escapeHTML(voice)}</p>
+</div>
 
-    <div class="result-block">
-      <h3>🔥 HOOK</h3>
-      <p>${escapeHTML(hook)}</p>
-    </div>
+<h2 class="section-title">🎬 SCENE-BY-SCENE KIT</h2>
 
-    <div class="result-block">
-      <h3>📝 SCRIPT — ${duration}</h3>
-      <p>${escapeHTML(script)}</p>
-    </div>
+${scenes.map((s,i)=>`
 
-    <div class="result-block">
-      <h3>🎬 SCENE BREAKDOWN</h3>
-      <p>${escapeHTML(scenes)}</p>
-    </div>
+<div class="scene">
 
-    <div class="result-block">
-      <h3>🖼️ AI VISUAL PROMPT</h3>
-      <p>${escapeHTML(visualPrompt)}</p>
-    </div>
+<h3>SCENE ${i+1} — ${s.name}</h3>
 
-    <div class="result-block">
-      <h3>🎙️ VOICEOVER</h3>
-      <p>${escapeHTML(voice)}</p>
-    </div>
+<div><b>👁️ Visual:</b><br>${escapeHTML(s.visual)}</div>
 
-    <div class="result-block">
-      <h3>📄 DESCRIPTION</h3>
-      <p>${escapeHTML(description)}</p>
-    </div>
+<div><b>🎥 Camera:</b><br>${escapeHTML(s.camera)}</div>
 
-    <div class="result-block">
-      <h3>#️⃣ HASHTAGS</h3>
-      <p>${escapeHTML(hashtags)}</p>
-    </div>
+<div><b>🖼️ Image Prompt:</b><br>${escapeHTML(s.image)}</div>
 
-    <div class="result-block">
-      <h3>📌 PINNED COMMENT</h3>
-      <p>${escapeHTML(pinned)}</p>
-    </div>
-  `;
+<div><b>🎬 Video Prompt:</b><br>${escapeHTML(s.video)}</div>
 
-  document.getElementById("result").classList.add("show");
+<div><b>🔊 SFX:</b><br>${escapeHTML(s.sfx)}</div>
 
-  showToast("Content kit created!");
+</div>
+
+`).join("")}
+
+<div class="result-block">
+<h3>📱 ${platform.toUpperCase()} CAPTION</h3>
+<p>${escapeHTML(caption)}</p>
+</div>
+
+<div class="result-block">
+<h3>#️⃣ HASHTAGS</h3>
+<p>${escapeHTML(hashtags)}</p>
+</div>
+
+<div class="result-block">
+<h3>📌 PINNED COMMENT</h3>
+<p>${escapeHTML(pinned)}</p>
+</div>
+`;
+
+document.getElementById("result").innerHTML=html;
+
+showToast("Creator Kit 2.0 created!");
 }
 
 
-// TITLE
-function createTitle(idea){
-
-  let clean=idea
-    .replace(/[^\w\s]/gi,"")
-    .trim();
-
-  if(clean.length>55){
-    clean=clean.substring(0,55)+"...";
-  }
-
-  return clean || "Untold Story";
-}
-
-
-// HOOK LAB
 function generateHooks(){
 
-  const topic=document.getElementById("hookTopic").value.trim();
+const topic=document.getElementById("hookTopic").value.trim();
 
-  if(!topic){
-    showToast("Enter a topic first.");
-    return;
-  }
+if(!topic){
+showToast("Enter a topic first.");
+return;
+}
 
-  const hooks=[
-    "Nobody expected this to happen with "+topic+".",
-    "What if "+topic+" is not what we were told?",
-    "This story about "+topic+" gets stranger the deeper you look.",
-    "You have probably never heard this side of "+topic+".",
-    "Something unusual happened involving "+topic+".",
-    "The mystery behind "+topic+" still raises questions.",
-    "Wait until you hear what happened next.",
-    "Scientists, historians or witnesses still debate this.",
-    "Here's the detail about "+topic+" that changes everything.",
-    "Would you believe this if you saw it yourself?"
-  ];
+const hooks=createHooks(topic);
 
-  document.getElementById("hookResults").innerHTML=
-  hooks.map((h,i)=>`
-    <div class="result-block">
-      <h3>HOOK ${i+1}</h3>
-      <p>${escapeHTML(h)}</p>
-      <button class="secondary" style="margin-top:10px"
-        onclick="copyText(${JSON.stringify(h)})">
-        📋 Copy
-      </button>
-    </div>
-  `).join("");
+document.getElementById("hookResults").innerHTML=
+hooks.map((x,i)=>`
+<div class="result-block">
+<h3>HOOK ${i+1}</h3>
+<p>${escapeHTML(x)}</p>
+<button class="secondary"
+onclick="copyText(${JSON.stringify(x)})">
+📋 Copy
+</button>
+</div>
+`).join("");
 
 }
 
 
-// IDEA GENERATOR
 function generateIdeas(){
 
-  const niche=document.getElementById("ideaNiche").value;
+const niche=document.getElementById("ideaNiche").value;
 
-  const ideas={
-    "Mystery":[
-      "The abandoned place nobody can explain",
-      "A mysterious event witnessed by an entire town",
-      "The object discovered where it shouldn't exist",
-      "A strange disappearance with unanswered questions",
-      "The forgotten mystery hidden in an old photograph"
-    ],
+const ideas={
+Mystery:[
+"The abandoned place nobody can explain",
+"The photograph with a mysterious detail",
+"The disappearance that left unanswered questions",
+"The strange event witnessed by an entire town",
+"The object discovered where it shouldn't exist"
+],
+Horror:[
+"The sound recorded at exactly 3 AM",
+"The room nobody wanted to open",
+"The figure captured in an old photograph",
+"The last message before the disappearance",
+"The house with a forgotten history"
+],
+History:[
+"How people lived in the Philippines decades ago",
+"The forgotten event that changed a community",
+"The old photograph that tells a hidden story",
+"A historical place with a surprising past",
+"The tradition whose origin nobody remembers"
+],
+"UFO / UAP":[
+"The unexplained lights witnessed by multiple people",
+"A strange object seen above a city",
+"The UFO case worth revisiting",
+"What witnesses actually reported",
+"The mysterious sighting that remains unexplained"
+],
+Motivation:[
+"The day you decide not to quit",
+"What nobody tells you about success",
+"Why starting small matters",
+"How failure can become a turning point",
+"One habit that can change your routine"
+],
+Love:[
+"The message they never sent",
+"A love story separated by distance",
+"When two people meet again years later",
+"The song that reminds someone of lost love",
+"The goodbye that changed everything"
+],
+Gaming:[
+"The mistake almost every beginner makes",
+"The strategy players overlook",
+"The comeback nobody expected",
+"A trick every player should know",
+"The most unexpected gaming moment"
+],
+Music:[
+"The story behind a forgotten song",
+"Why old songs trigger memories",
+"The emotion behind a love song",
+"How the classic sound became timeless",
+"The song concept designed for nostalgia"
+],
+Business:[
+"A simple business idea for beginners",
+"The mistake new entrepreneurs make",
+"How small businesses can use AI",
+"How to organize daily sales",
+"Turning a small idea into a real product"
+],
+Educational:[
+"A fact most people learn too late",
+"The simple explanation nobody gave you",
+"Three things you should know",
+"A common misconception explained",
+"The science behind something ordinary"
+]
+};
 
-    "Horror":[
-      "The house that nobody wanted to enter",
-      "A strange sound recorded late at night",
-      "The unexplained figure captured on camera",
-      "A room that was sealed for decades",
-      "The final message before someone disappeared"
-    ],
+const list=ideas[niche]||ideas.Mystery;
 
-    "History":[
-      "A forgotten event that changed a community",
-      "The old photograph with a mysterious detail",
-      "What daily life looked like decades ago",
-      "A historical place with a surprising story",
-      "The untold story behind an old tradition"
-    ],
-
-    "UFO / UAP":[
-      "A strange object observed by multiple witnesses",
-      "The unexplained lights seen over a city",
-      "A historical UFO case worth revisiting",
-      "What witnesses actually reported",
-      "The mystery behind a famous unexplained sighting"
-    ],
-
-    "Motivation":[
-      "Why starting small can change your life",
-      "The day you decide not to give up",
-      "What nobody tells you about success",
-      "How failure can become your turning point",
-      "One habit that can change your routine"
-    ],
-
-    "Love":[
-      "The message they never got to send",
-      "A love story separated by distance",
-      "When two people meet again years later",
-      "The song that reminds someone of lost love",
-      "A final goodbye that changed everything"
-    ],
-
-    "Gaming":[
-      "The biggest mistake beginners make",
-      "A hidden strategy players overlook",
-      "The comeback nobody expected",
-      "One gaming trick worth learning",
-      "The most unexpected gaming moment"
-    ],
-
-    "Music":[
-      "The story behind a forgotten song",
-      "Why certain melodies trigger memories",
-      "The emotional meaning behind a love song",
-      "How an old-school sound became timeless",
-      "A song concept designed for nostalgia"
-    ],
-
-    "Business":[
-      "A simple business idea with low startup cost",
-      "The mistake new entrepreneurs often make",
-      "How small businesses can use AI",
-      "A simple way to organize daily sales",
-      "Turning a small idea into a real product"
-    ],
-
-    "Educational":[
-      "A fact most people learn too late",
-      "The simple explanation nobody gave you",
-      "Three things you should know about this topic",
-      "A common misconception explained",
-      "The surprising science behind everyday life"
-    ]
-  };
-
-  const list=ideas[niche] || ideas["Mystery"];
-
-  document.getElementById("ideaResults").innerHTML=
-  list.map((idea,i)=>`
-    <div class="result-block">
-      <h3>IDEA ${i+1}</h3>
-      <p>${escapeHTML(idea)}</p>
-      <button class="secondary" style="margin-top:10px"
-        onclick="useIdea(${JSON.stringify(idea)})">
-        ✨ USE THIS IDEA
-      </button>
-    </div>
-  `).join("");
-
+document.getElementById("ideaResults").innerHTML=
+list.map((x,i)=>`
+<div class="result-block">
+<h3>IDEA ${i+1}</h3>
+<p>${escapeHTML(x)}</p>
+<button class="secondary"
+onclick="useIdea(${JSON.stringify(x)})">
+✨ USE THIS IDEA
+</button>
+</div>
+`).join("");
 }
 
 
-// USE IDEA
 function useIdea(idea){
 
-  document.getElementById("idea").value=idea;
-
-  openScreen("create");
-
-  showToast("Idea added to Make a Short.");
+document.getElementById("idea").value=idea;
+openScreen("create");
+showToast("Idea added!");
 }
 
 
-// SAVE PROJECT
+function saveCharacter(){
+
+const name=document.getElementById("charName").value.trim();
+
+if(!name){
+showToast("Enter a character name.");
+return;
+}
+
+const character={
+name:name,
+age:document.getElementById("charAge").value,
+appearance:document.getElementById("charAppearance").value,
+personality:document.getElementById("charPersonality").value,
+world:document.getElementById("charWorld").value
+};
+
+localStorage.setItem(
+"keuCharacter",
+JSON.stringify(character)
+);
+
+document.getElementById("characterResult").innerHTML=`
+<div class="character">
+<h3>👤 ${escapeHTML(character.name)}</h3>
+<p style="margin-top:10px;line-height:1.6">
+Age: ${escapeHTML(character.age)}<br><br>
+Appearance:<br>${escapeHTML(character.appearance)}<br><br>
+Personality:<br>${escapeHTML(character.personality)}<br><br>
+World:<br>${escapeHTML(character.world)}
+</p>
+</div>
+`;
+
+showToast("Character saved!");
+}
+
+
 function saveProject(){
 
-  if(!lastGenerated){
-    showToast("Generate content first.");
-    return;
-  }
+if(!lastGenerated){
+showToast("Generate a Creator Kit first.");
+return;
+}
 
-  const projects=
-    JSON.parse(localStorage.getItem("keuProjects") || "[]");
+const projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
-  const project={
-    id:Date.now(),
-    title:createTitle(document.getElementById("idea").value),
-    content:lastGenerated,
-    date:new Date().toLocaleString()
-  };
+projects.unshift({
+id:Date.now(),
+title:document.getElementById("idea").value.substring(0,60),
+content:lastGenerated,
+date:new Date().toLocaleString()
+});
 
-  projects.unshift(project);
+localStorage.setItem(
+"keuProjects",
+JSON.stringify(projects)
+);
 
-  localStorage.setItem(
-    "keuProjects",
-    JSON.stringify(projects)
-  );
-
-  showToast("Project saved!");
+showToast("Project saved!");
 }
 
 
-// LOAD PROJECTS
 function loadProjects(){
 
-  const projects=
-    JSON.parse(localStorage.getItem("keuProjects") || "[]");
+const projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
-  const box=document.getElementById("projectsList");
+const box=document.getElementById("projectsList");
 
-  if(projects.length===0){
+if(!projects.length){
 
-    box.innerHTML=`
-      <div class="empty">
-        <div style="font-size:40px">📁</div>
-        <p>No saved projects yet.</p>
-        <p style="margin-top:7px">
-          Create your first short and save it here.
-        </p>
-      </div>
-    `;
+box.innerHTML=`
+<div class="empty">
+<div style="font-size:42px">📁</div>
+<p>No projects yet.</p>
+</div>`;
 
-    return;
-  }
+return;
+}
 
-  box.innerHTML=projects.map(p=>`
-    <div class="project">
-      <h3>${escapeHTML(p.title)}</h3>
-      <p>${escapeHTML(p.date)}</p>
+box.innerHTML=projects.map(p=>`
+<div class="project">
+<h3>${escapeHTML(p.title)}</h3>
+<p style="margin-top:5px">${escapeHTML(p.date)}</p>
 
-      <div class="action-row" style="margin-top:10px">
+<div class="action-row" style="margin-top:10px">
+<button class="secondary"
+onclick="viewProject(${p.id})">
+👁️ View
+</button>
 
-        <button class="secondary"
-          onclick="viewProject(${p.id})">
-          👁️ View
-        </button>
-
-        <button class="secondary"
-          onclick="deleteProject(${p.id})">
-          🗑️ Delete
-        </button>
-
-      </div>
-    </div>
-  `).join("");
+<button class="secondary"
+onclick="deleteProject(${p.id})">
+🗑️ Delete
+</button>
+</div>
+</div>
+`).join("");
 }
 
 
-// VIEW PROJECT
 function viewProject(id){
 
-  const projects=
-    JSON.parse(localStorage.getItem("keuProjects") || "[]");
+const projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
-  const project=projects.find(p=>p.id===id);
+const p=projects.find(x=>x.id===id);
 
-  if(!project)return;
+if(!p)return;
 
-  openModal(
-    project.title,
-    `<div class="result-block">
-      <p>${escapeHTML(project.content)}</p>
-    </div>`
-  );
+alert(p.content);
 }
 
 
-// DELETE
 function deleteProject(id){
 
-  let projects=
-    JSON.parse(localStorage.getItem("keuProjects") || "[]");
+let projects=
+JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
-  projects=projects.filter(p=>p.id!==id);
+projects=projects.filter(x=>x.id!==id);
 
-  localStorage.setItem(
-    "keuProjects",
-    JSON.stringify(projects)
-  );
+localStorage.setItem(
+"keuProjects",
+JSON.stringify(projects)
+);
 
-  loadProjects();
-
-  showToast("Project deleted.");
+loadProjects();
+showToast("Project deleted.");
 }
 
 
-// COPY ALL
 function copyAll(){
 
-  if(!lastGenerated){
-    showToast("Nothing to copy.");
-    return;
-  }
+if(!lastGenerated){
+showToast("Nothing to copy.");
+return;
+}
 
-  copyText(lastGenerated);
+copyText(lastGenerated);
 }
 
 
-// COPY
 function copyText(text){
 
-  navigator.clipboard.writeText(text)
-    .then(()=>{
-      showToast("Copied!");
-    })
-    .catch(()=>{
-      showToast("Copy failed. Try again.");
-    });
+if(navigator.clipboard){
+
+navigator.clipboard.writeText(text)
+.then(()=>showToast("Copied!"))
+.catch(()=>showToast("Copy failed."));
+}
+
 }
 
 
-// WAITLIST
-function joinWaitlist(){
-
-  localStorage.setItem(
-    "keuVideoWaitlist",
-    "joined"
-  );
-
-  showToast("You're on the video waitlist! 🚀");
-}
-
-
-// COMING SOON
-function comingSoon(name){
-
-  openModal(
-    name,
-    `
-    <div class="result-block">
-      <h3>🚀 COMING SOON</h3>
-      <p>
-        This tool is planned for a future KEU AI SHORTS
-        release. Phase 1 focuses on the free creator
-        workflow first.
-      </p>
-    </div>
-    `
-  );
-}
-
-
-// MODAL
-function openModal(title,content){
-
-  document.getElementById("modalTitle").textContent=title;
-
-  document.getElementById("modalContent").innerHTML=content;
-
-  document.getElementById("modal").classList.add("show");
-}
-
-
-function closeModal(){
-
-  document.getElementById("modal").classList.remove("show");
-}
-
-
-// TOAST
 function showToast(message){
 
-  const toast=document.getElementById("toast");
+const t=document.createElement("div");
 
-  toast.textContent=message;
+t.className="toast show";
+t.textContent=message;
 
-  toast.classList.add("show");
+document.body.appendChild(t);
 
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
+setTimeout(()=>t.remove(),2200);
 }
 
 
-// ESCAPE HTML
 function escapeHTML(value){
 
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+return String(value)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 }
 
-
-// INITIALIZE
 loadProjects();
 
 </script>
