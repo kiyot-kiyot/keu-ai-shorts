@@ -554,6 +554,8 @@ document.querySelectorAll("main>section")
 
 document.getElementById(id).classList.remove("hidden");
 
+if(id==="resultPage")document.getElementById(id).classList.add("show"); 
+
 document.querySelectorAll(".nav-btn")
 .forEach(x=>x.classList.remove("active"));
 
