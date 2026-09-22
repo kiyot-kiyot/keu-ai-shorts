@@ -1245,7 +1245,27 @@ window.addEventListener("load",()=>{
 updateStats();
 });
 function updateStats(){
-  ...
+  let projects =
+    JSON.parse(
+      localStorage.getItem("keuProjects") || "[]"
+    );
+
+  let generations =
+    localStorage.getItem("keuGenerations") || "0";
+
+  let projectEl =
+    document.getElementById("projectCount");
+
+  let generationEl =
+    document.getElementById("generationCount");
+
+  if(projectEl){
+    projectEl.textContent = projects.length;
+  }
+
+  if(generationEl){
+    generationEl.textContent = generations;
+  }
 }
 function incrementGenerations(){
   try{
