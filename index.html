@@ -974,6 +974,57 @@ currentKit.tone
 /* SHARE */
 
 function buildShareText(){
+  let titleList=currentKit&&currentKit.titles
+    ?currentKit.titles.join("\n")
+    :"";
+
+  let hookList=currentKit&&currentKit.hooks
+    ?currentKit.hooks.join("\n")
+    :"";
+
+  let scenes=currentKit&&currentKit.scenes
+    ?currentKit.scenes.map(function(s,i){
+        return(
+          (i+1)+". "+s.name+
+          "\nVISUAL: "+s.visual+
+          "\nCAMERA: "+s.camera+
+          "\nTEXT: "+s.text
+        );
+      }).join("\n\n")
+    :"";
+
+  return(
+    "KEU AI SHORTS — GOLD 2.5 FULL CONTENT KIT\n\n"+
+    
+    "TITLE OPTIONS:\n"+titleList+
+    
+    "\n\nSELECTED TITLE:\n"+selectedTitle+
+    
+    "\n\nHOOK OPTIONS:\n"+hookList+
+    
+    "\n\nSELECTED HOOK:\n"+selectedHook+
+    
+    "\n\nSCRIPT:\n"+
+    document.getElementById("script").value+
+    
+    "\n\nSCENE BREAKDOWN:\n"+scenes+
+    
+    "\n\nAI VISUAL PROMPT:\n"+
+    document.getElementById("visual").value+
+    
+    "\n\nVOICEOVER:\n"+
+    document.getElementById("voiceover").value+
+    
+    "\n\nCAPTION:\n"+
+    document.getElementById("caption").value+
+    
+    "\n\nHASHTAGS:\n"+
+    document.getElementById("hashtags").value+
+    
+    "\n\nPINNED COMMENT:\n"+
+    document.getElementById("pinned").value
+  );
+}
 
 let script=document.getElementById("script").value;
 
@@ -992,7 +1043,7 @@ document.getElementById("caption").value+
 document.getElementById("hashtags").value
 );
 }
-
+  
 
 function shareKit(){
 
