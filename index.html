@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#09090f">
 <title>KEU AI SHORTS</title>
 
@@ -12,217 +12,226 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 background:#09090f;
 color:#fff;
-min-height:100vh
+min-height:100vh;
 }
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
-.app{max-width:760px;margin:auto;padding-bottom:90px}
+.app{max-width:820px;margin:auto;padding-bottom:100px}
 
-.header{
-padding:22px 20px;
+header{
+position:sticky;top:0;z-index:20;
+background:rgba(9,9,15,.96);
+backdrop-filter:blur(12px);
+padding:20px;
+border-bottom:1px solid #272733;
 display:flex;
 justify-content:space-between;
 align-items:center;
-border-bottom:1px solid #242431;
-position:sticky;
-top:0;
-background:#09090ff5;
-z-index:20
 }
-.logo{font-size:22px;font-weight:900}
-.logo span{color:#8b5cf6}
-.status{
-padding:7px 11px;
-border:1px solid #343446;
-border-radius:20px;
-font-size:11px;
-color:#a7f3d0
+.logo{font-size:25px;font-weight:900}
+.logo span{color:#8b4dff}
+.badge{
+border:1px solid #3a3548;
+border-radius:30px;
+padding:9px 15px;
+color:#aeeecf;
+font-size:14px;
 }
 
-main{padding:20px}
-.screen{display:none}
-.screen.active{display:block}
-
-.hero{padding:25px 0 20px}
-.hero h1{font-size:34px;line-height:1.05;margin-bottom:12px}
-.hero h1 span{color:#8b5cf6}
-.hero p,.page-sub{color:#9999aa;line-height:1.5}
-
-.card,.result-block,.project,.tool-card{
-background:#11111a;
-border:1px solid #2a2a38;
-border-radius:17px;
-padding:17px;
-margin-bottom:14px
+main{padding:30px 18px}
+.hero{margin-bottom:25px}
+.hero h1{
+font-size:42px;
+line-height:1.05;
+margin-bottom:14px;
 }
+.hero h1 span{color:#914cff}
+.hero p{color:#aaa8b7;font-size:18px;line-height:1.5}
 
-.label{
+.card{
+background:#111118;
+border:1px solid #292934;
+border-radius:24px;
+padding:20px;
+margin-bottom:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+label{
 display:block;
-font-size:12px;
-color:#aaaabc;
-margin-bottom:8px;
-text-transform:uppercase
+font-size:13px;
+color:#aaa8b7;
+margin-bottom:9px;
+text-transform:uppercase;
+letter-spacing:.5px;
 }
-
 textarea,input,select{
 width:100%;
 background:#09090f;
-border:1px solid #353546;
-border-radius:12px;
-padding:14px;
+border:1px solid #373642;
+border-radius:17px;
 color:#fff;
-outline:none
+padding:16px;
+outline:none;
 }
-textarea{min-height:130px;resize:vertical}
-textarea:focus,input:focus,select:focus{border-color:#8b5cf6}
-
-.primary{
-width:100%;
-border:0;
-border-radius:13px;
-padding:15px;
-margin-top:12px;
-background:#7c3aed;
-color:#fff;
-font-weight:800
+textarea{
+min-height:150px;
+resize:vertical;
+line-height:1.5;
 }
-
-.secondary{
-background:#181821;
-border:1px solid #39394b;
-border-radius:10px;
-padding:10px 13px;
-color:#fff
+textarea:focus,input:focus,select:focus{
+border-color:#914cff;
 }
+.field{margin-bottom:18px}
 
-.page-title{font-size:28px;margin:10px 0 6px}
-.section-title{font-size:18px;margin:24px 0 12px}
-
-.tool-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px
-}
-.tool{
-background:#11111a;
-border:1px solid #292936;
-border-radius:15px;
-padding:15px;
-text-align:left;
-color:#fff
-}
-.tool strong{display:block;margin-top:7px}
-.tool small{display:block;color:#858595;margin-top:5px}
-
-.form-grid{
+.grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px
+gap:14px;
 }
-.full{grid-column:1/-1}
+.btn{
+border:0;
+border-radius:17px;
+padding:16px 18px;
+font-weight:800;
+color:white;
+background:#833cff;
+width:100%;
+}
+.btn:hover{filter:brightness(1.1)}
+.btn.secondary{
+background:#1b1b25;
+border:1px solid #383744;
+}
+.btn.small{
+width:auto;
+padding:10px 13px;
+font-size:13px;
+}
+.btn.green{background:#15945c}
 
-.action-row{
+.section-title{
+font-size:22px;
+font-weight:900;
+margin:28px 0 15px;
+}
+
+.tools{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+.tool{
+background:#111118;
+border:1px solid #292934;
+border-radius:20px;
+padding:20px;
+min-height:125px;
+}
+.tool .icon{font-size:28px}
+.tool h3{margin:10px 0 6px}
+.tool p{color:#9997a6;font-size:14px;line-height:1.4}
+
+.result-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+margin-bottom:15px;
+}
+.result-title{font-size:22px;font-weight:900}
+.result-box{
+background:#09090f;
+border:1px solid #292934;
+border-radius:17px;
+padding:16px;
+margin-bottom:12px;
+line-height:1.55;
+white-space:pre-wrap;
+}
+.result-label{
+color:#a66aff;
+font-weight:900;
+margin-bottom:8px;
+}
+.option{
+background:#0d0d14;
+border:1px solid #292934;
+border-radius:14px;
+padding:14px;
+margin:8px 0;
+}
+
+.actions{
 display:flex;
 gap:8px;
 flex-wrap:wrap;
-margin-bottom:12px
+margin-top:10px;
 }
 
-.result-block h3{
-font-size:14px;
-color:#a78bfa;
-margin-bottom:9px
-}
-.result-block p{
-white-space:pre-wrap;
-line-height:1.55;
-color:#ddd
+.empty{
+text-align:center;
+color:#888694;
+padding:35px 10px;
 }
 
-.option{
-background:#0c0c13;
-border:1px solid #292936;
-border-radius:12px;
-padding:12px;
-margin:8px 0
+.project{
+background:#111118;
+border:1px solid #292934;
+border-radius:18px;
+padding:16px;
+margin-bottom:12px;
+}
+.project h3{margin-bottom:7px}
+.project p{color:#9997a6;font-size:13px}
+.project-actions{
+display:flex;
+gap:8px;
+margin-top:12px;
 }
 
-.scene{
-background:#0c0c13;
-border:1px solid #292936;
-border-radius:14px;
-padding:15px;
-margin-bottom:12px
-}
-.scene h3{color:#a78bfa;margin-bottom:10px}
-.scene div{margin:7px 0;color:#ddd;line-height:1.45}
-.scene b{color:#fff}
+.hidden{display:none!important}
 
-.character{
-background:#0c0c13;
-border:1px solid #292936;
-border-radius:13px;
-padding:14px;
-margin-top:10px
-}
-
-.bottom-nav{
+.bottom{
 position:fixed;
 bottom:0;
 left:0;
 right:0;
-max-width:760px;
-margin:auto;
-height:70px;
-background:#0c0c13f7;
-border-top:1px solid #292936;
+z-index:30;
+background:rgba(12,12,18,.97);
+border-top:1px solid #292934;
+display:flex;
+justify-content:center;
+}
+.nav{
+width:min(820px,100%);
 display:grid;
 grid-template-columns:repeat(4,1fr);
-z-index:50
 }
-.nav-btn{
+.nav button{
 background:none;
 border:0;
-color:#777789;
-font-size:11px
+color:#888694;
+padding:13px 5px;
+font-size:12px;
 }
-.nav-btn .icon{
-display:block;
-font-size:20px;
-margin-bottom:3px
-}
-.nav-btn.active{color:#a78bfa}
+.nav button.active{color:#a45cff}
+.nav-icon{display:block;font-size:22px;margin-bottom:4px}
 
-.empty{
-text-align:center;
-padding:35px 15px;
-color:#888899
-}
-
-.toast{
-position:fixed;
-bottom:85px;
-left:50%;
-transform:translateX(-50%) translateY(20px);
-background:#fff;
-color:#111;
-padding:11px 16px;
-border-radius:10px;
+.notice{
+background:#171421;
+border:1px solid #49356d;
+border-radius:15px;
+padding:13px;
+color:#c8b9df;
 font-size:13px;
-opacity:0;
-pointer-events:none;
-transition:.25s;
-z-index:100
-}
-.toast.show{
-opacity:1;
-transform:translateX(-50%) translateY(0)
+line-height:1.5;
+margin-bottom:15px;
 }
 
-@media(max-width:430px){
-.hero h1{font-size:29px}
-.form-grid{grid-template-columns:1fr}
-.full{grid-column:auto}
+@media(max-width:600px){
+.hero h1{font-size:34px}
+.grid,.tools{grid-template-columns:1fr}
+main{padding:25px 14px}
 }
 </style>
 </head>
@@ -231,110 +240,103 @@ transform:translateX(-50%) translateY(0)
 
 <div class="app">
 
-<header class="header">
+<header>
 <div class="logo">KEU <span>AI SHORTS</span></div>
-<div class="status">● FREE</div>
+<div class="badge">● FREE</div>
 </header>
 
 <main>
 
-<!-- HOME -->
-<section id="home" class="screen active">
+<section id="home">
 
 <div class="hero">
 <h1>WHAT ARE YOU<br><span>CREATING TODAY?</span></h1>
-<p>One idea → a complete short-form content kit.</p>
+<p>Turn one idea into a complete short-form content kit.</p>
 </div>
 
 <div class="card">
-<label class="label">Your Idea</label>
-<textarea id="homeIdea"
-placeholder="Example: A mysterious light appears above a small Philippine town..."></textarea>
+<label>Your Idea</label>
+<textarea id="idea" placeholder="Example: A mysterious light appears above a small Philippine town at midnight..."></textarea>
 
-<button class="primary" onclick="createFromHome()">
-✨ CREATE CONTENT
-</button>
+<button class="btn" onclick="goCreate()">✨ CREATE CONTENT</button>
 </div>
 
-<h2 class="section-title">Quick Creator Tools</h2>
+<div class="section-title">Quick Creator Tools</div>
 
-<div class="tool-grid">
+<div class="tools">
+<div class="tool" onclick="goCreate()">
+<div class="icon">🎬</div>
+<h3>Make a Short</h3>
+<p>Turn an idea into a complete short.</p>
+</div>
 
-<button class="tool" onclick="openScreen('create')">
-🎬
-<strong>Make a Short</strong>
-<small>Complete content kit</small>
-</button>
+<div class="tool" onclick="generateHooksOnly()">
+<div class="icon">🔥</div>
+<h3>Hook Lab</h3>
+<p>Create attention-grabbing hooks.</p>
+</div>
 
-<button class="tool" onclick="openScreen('hooks')">
-🔥
-<strong>Hook Lab</strong>
-<small>Scroll-stopping hooks</small>
-</button>
+<div class="tool" onclick="generateIdeas()">
+<div class="icon">💡</div>
+<h3>Idea Generator</h3>
+<p>Find your next content idea.</p>
+</div>
 
-<button class="tool" onclick="openScreen('ideas')">
-💡
-<strong>Idea Generator</strong>
-<small>Find new topics</small>
-</button>
-
-<button class="tool" onclick="openScreen('character')">
-👤
-<strong>Character Lock</strong>
-<small>Keep characters consistent</small>
-</button>
-
+<div class="tool" onclick="showTools()">
+<div class="icon">🧰</div>
+<h3>Creator Tools</h3>
+<p>Explore more content tools.</p>
+</div>
 </div>
 
 </section>
 
 
-<!-- CREATE -->
-<section id="create" class="screen">
+<section id="create" class="hidden">
 
-<h1 class="page-title">🎬 Make a Short</h1>
-<p class="page-sub">Create a complete Creator Kit from one idea.</p>
+<div class="section-title">✨ Creator Kit 2.1</div>
 
 <div class="card">
 
-<label class="label">Your Idea</label>
+<div class="field">
+<label>Your Idea</label>
+<textarea id="createIdea" placeholder="Describe your topic, story, product or concept..."></textarea>
+</div>
 
-<textarea id="idea"
-placeholder="Enter your topic, story, product, mystery, lesson, song, etc."></textarea>
+<div class="grid">
 
-<div class="form-grid">
-
-<div>
-<label class="label">Genre</label>
+<div class="field">
+<label>Genre</label>
 <select id="genre">
 <option>Storytelling</option>
 <option>Mystery</option>
 <option>Horror</option>
 <option>Romance</option>
+<option>Comedy</option>
 <option>Motivation</option>
 <option>Educational</option>
 <option>Gaming</option>
 <option>Music</option>
 <option>Business</option>
-<option>Sci-Fi</option>
-<option>Fantasy</option>
 <option>History</option>
 <option>UFO / UAP</option>
-<option>Comedy</option>
+<option>Science</option>
+<option>Fantasy</option>
+<option>Sci-Fi</option>
 </select>
 </div>
 
-<div>
-<label class="label">Duration</label>
+<div class="field">
+<label>Duration</label>
 <select id="duration">
-<option>15 seconds</option>
-<option selected>30 seconds</option>
-<option>60 seconds</option>
+<option value="15">15 seconds</option>
+<option value="30" selected>30 seconds</option>
+<option value="60">60 seconds</option>
 </select>
 </div>
 
-<div>
-<label class="label">Language</label>
+<div class="field">
+<label>Language</label>
 <select id="language">
 <option>English</option>
 <option>Tagalog</option>
@@ -343,8 +345,8 @@ placeholder="Enter your topic, story, product, mystery, lesson, song, etc."></te
 </select>
 </div>
 
-<div>
-<label class="label">Platform</label>
+<div class="field">
+<label>Platform</label>
 <select id="platform">
 <option>YouTube Shorts</option>
 <option>TikTok</option>
@@ -353,8 +355,8 @@ placeholder="Enter your topic, story, product, mystery, lesson, song, etc."></te
 </select>
 </div>
 
-<div class="full">
-<label class="label">Tone</label>
+<div class="field">
+<label>Tone</label>
 <select id="tone">
 <option>Cinematic</option>
 <option>Emotional</option>
@@ -369,801 +371,617 @@ placeholder="Enter your topic, story, product, mystery, lesson, song, etc."></te
 
 </div>
 
-<button class="primary" onclick="generateContent()">
-✨ GENERATE CREATOR KIT 2.0
-</button>
+<button class="btn" onclick="generateKit()">✨ GENERATE CREATOR KIT 2.1</button>
 
 </div>
 
-<div id="result"></div>
+<div id="results"></div>
 
 </section>
 
 
-<!-- HOOK LAB -->
-<section id="hooks" class="screen">
+<section id="projects" class="hidden">
+<div class="section-title">📁 My Projects</div>
+<div id="projectList"></div>
+</section>
 
-<h1 class="page-title">🔥 Hook Lab</h1>
-<p class="page-sub">Generate different opening styles.</p>
+
+<section id="profile" class="hidden">
+
+<div class="section-title">👤 Profile</div>
 
 <div class="card">
-<label class="label">Topic</label>
-<input id="hookTopic" placeholder="Example: mysterious lights in the sky">
-
-<button class="primary" onclick="generateHooks()">
-🔥 GENERATE 10 HOOKS
-</button>
-</div>
-
-<div id="hookResults"></div>
-
-</section>
-
-
-<!-- IDEAS -->
-<section id="ideas" class="screen">
-
-<h1 class="page-title">💡 Idea Generator</h1>
-<p class="page-sub">Find your next short-form content idea.</p>
-
-<div class="card">
-
-<label class="label">Niche</label>
-
-<select id="ideaNiche">
-<option>Mystery</option>
-<option>Horror</option>
-<option>History</option>
-<option>UFO / UAP</option>
-<option>Motivation</option>
-<option>Love</option>
-<option>Gaming</option>
-<option>Music</option>
-<option>Business</option>
-<option>Educational</option>
-</select>
-
-<button class="primary" onclick="generateIdeas()">
-💡 GENERATE IDEAS
-</button>
-
-</div>
-
-<div id="ideaResults"></div>
-
-</section>
-
-
-<!-- CHARACTER LOCK -->
-<section id="character" class="screen">
-
-<h1 class="page-title">👤 Character Lock</h1>
-<p class="page-sub">Create a reusable character profile for consistent prompts.</p>
-
-<div class="card">
-
-<label class="label">Character Name</label>
-<input id="charName" placeholder="Example: Alex">
-
-<label class="label">Age</label>
-<input id="charAge" placeholder="Example: 28">
-
-<label class="label">Appearance</label>
-<textarea id="charAppearance"
-placeholder="Hair, face, body, clothing, distinctive features..."></textarea>
-
-<label class="label">Personality</label>
-<input id="charPersonality" placeholder="Brave, mysterious, quiet...">
-
-<label class="label">World / Setting</label>
-<input id="charWorld" placeholder="Modern Philippine town...">
-
-<button class="primary" onclick="saveCharacter()">
-👤 SAVE CHARACTER
-</button>
-
-</div>
-
-<div id="characterResult"></div>
-
-</section>
-
-
-<!-- PROJECTS -->
-<section id="projects" class="screen">
-
-<h1 class="page-title">📁 My Projects</h1>
-<p class="page-sub">Your saved Creator Kits.</p>
-
-<div id="projectsList"></div>
-
-</section>
-
-
-<!-- PROFILE -->
-<section id="profile" class="screen">
-
-<h1 class="page-title">👤 KEU Creator</h1>
-
-<div class="card">
-<h3>🚀 KEU AI SHORTS</h3>
-<p style="color:#999;margin-top:8px;line-height:1.5">
-AI Content Factory designed to turn one idea into
-a complete short-form content kit.
+<h2>KEU AI SHORTS</h2>
+<p style="color:#999;margin:10px 0">
+AI Content Factory — Phase 1
 </p>
+
+<div class="notice">
+🚀 Free testing version.<br>
+AI video, image and voice generation will be added in future versions.
 </div>
 
-<div class="card">
-<h3>🎬 Future Features</h3>
-<p style="color:#999;margin-top:8px;line-height:1.6">
-Real AI generation<br>
-AI image generation<br>
-AI video generation<br>
-Voice generation<br>
-Cloud projects<br>
-Creator analytics<br>
-Premium tools
-</p>
+<button class="btn secondary" onclick="clearProjects()">
+Clear Saved Projects
+</button>
 </div>
 
 </section>
 
 </main>
+</div>
 
 
-<nav class="bottom-nav">
+<div class="bottom">
+<div class="nav">
 
-<button class="nav-btn active" data-screen="home"
-onclick="openScreen('home')">
-<span class="icon">🏠</span>Home
+<button id="navHome" class="active" onclick="showPage('home')">
+<span class="nav-icon">🏠</span>Home
 </button>
 
-<button class="nav-btn" data-screen="create"
-onclick="openScreen('create')">
-<span class="icon">✨</span>Create
+<button id="navCreate" onclick="showPage('create')">
+<span class="nav-icon">✨</span>Create
 </button>
 
-<button class="nav-btn" data-screen="projects"
-onclick="openScreen('projects')">
-<span class="icon">📁</span>Projects
+<button id="navProjects" onclick="showPage('projects')">
+<span class="nav-icon">📁</span>Projects
 </button>
 
-<button class="nav-btn" data-screen="profile"
-onclick="openScreen('profile')">
-<span class="icon">👤</span>Profile
+<button id="navProfile" onclick="showPage('profile')">
+<span class="nav-icon">👤</span>Profile
 </button>
 
-</nav>
-
+</div>
 </div>
 
 
 <script>
 
-let lastGenerated="";
+let lastKit=null;
 
-function openScreen(screen){
 
-document.querySelectorAll(".screen").forEach(x=>{
-x.classList.remove("active")
+/* NAVIGATION */
+
+function showPage(page){
+
+document.querySelectorAll("main>section").forEach(s=>{
+s.classList.add("hidden");
 });
 
-document.getElementById(screen).classList.add("active");
+document.getElementById(page).classList.remove("hidden");
 
-document.querySelectorAll(".nav-btn").forEach(x=>{
-x.classList.remove("active");
-if(x.dataset.screen===screen)x.classList.add("active");
+document.querySelectorAll(".nav button").forEach(b=>{
+b.classList.remove("active");
 });
 
-if(screen==="projects")loadProjects();
+let nav=document.getElementById("nav"+page.charAt(0).toUpperCase()+page.slice(1));
+if(nav)nav.classList.add("active");
 
-window.scrollTo(0,0);
+if(page==="projects")renderProjects();
+
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function goCreate(){
+
+let idea=document.getElementById("idea").value.trim();
+
+showPage("create");
+
+if(idea){
+document.getElementById("createIdea").value=idea;
+}
 }
 
 
-function createFromHome(){
+/* TEXT HELPERS */
 
-const idea=document.getElementById("homeIdea").value.trim();
+function cleanIdea(text){
+
+text=text.trim();
+
+if(!text)return "an interesting story";
+
+return text.replace(/[.!?]+$/,"");
+}
+
+function topicWords(text){
+
+return cleanIdea(text)
+.toLowerCase()
+.split(/\s+/)
+.filter(w=>w.length>3)
+.slice(0,7)
+.join(" ");
+}
+
+
+/* TITLE ENGINE */
+
+function makeTitles(idea,genre){
+
+let topic=cleanIdea(idea);
+
+let templates=[
+`The Mystery Behind ${topic}`,
+`What Really Happened When ${topic}`,
+`Nobody Expected This Story`,
+`The Truth Behind This ${genre} Story`,
+`What Happened Next Changed Everything`
+];
+
+return templates;
+}
+
+
+/* HOOK ENGINE */
+
+function makeHooks(idea,genre){
+
+return[
+`Nobody expected this to happen...`,
+`What if everything you knew about this was wrong?`,
+`At first, nobody paid attention to what happened next...`,
+`There was one detail that changed the entire story.`,
+`And then something happened that nobody could explain...`
+];
+}
+
+
+/* STORY ENGINE */
+
+function makeScript(idea,duration,genre,tone,language){
+
+let topic=cleanIdea(idea);
+
+let scripts={
+
+English:[
+`Imagine discovering this: ${topic}.`,
+`At first, it seemed like an ordinary situation. But one strange detail changed everything.`,
+`People started asking questions, searching for an explanation, and looking closer at what really happened.`,
+`The deeper they looked, the more unusual the story became.`,
+`And even now, one question remains: what do you think really happened?`
+],
+
+Tagalog:[
+`Isipin mo ito: ${topic}.`,
+`Sa una, parang ordinaryong pangyayari lang ito. Pero may isang detalye na nagbago sa lahat.`,
+`Nagsimulang magtanong ang mga tao at hanapin kung ano talaga ang nangyari.`,
+`Habang mas malalim nilang iniimbestigahan, mas lalong naging kakaiba ang kuwento.`,
+`At hanggang ngayon, isang tanong ang nananatili: ano sa tingin mo ang totoong nangyari?`
+],
+
+Bisaya:[
+`Hunahunaa kini: ${topic}.`,
+`Sa sinugdan, murag ordinaryo ra nga panghitabo. Pero adunay usa ka detalye nga nakapausab sa tanan.`,
+`Nagsugod ang mga tawo og pangutana ug pagpangita sa tinuod nga nahitabo.`,
+`Samtang ilang gisusi pag-ayo, mas nahimong misteryoso ang istorya.`,
+`Ug hangtod karon, usa ra ka pangutana ang nahabilin: unsa man gyud ang imong hunahuna nga nahitabo?`
+],
+
+Taglish:[
+`Imagine this: ${topic}.`,
+`At first, parang ordinaryong pangyayari lang. Pero may isang detail na nagbago sa buong story.`,
+`People started asking questions at hinanap nila kung ano talaga ang nangyari.`,
+`The more they investigated, mas naging mysterious ang buong situation.`,
+`So ngayon, ikaw naman: ano sa tingin mo ang totoong nangyari?`
+]
+
+};
+
+let base=scripts[language]||scripts.English;
+
+if(duration==="15")return base.slice(0,3);
+if(duration==="60")return base.concat([
+`Sometimes, the smallest detail can completely change the way we understand a story.`
+]);
+
+return base;
+}
+
+
+/* SCENES */
+
+function makeScenes(idea,tone){
+
+return[
+{
+title:"HOOK",
+visual:`Establish the setting of ${idea}.`,
+camera:"Fast cinematic opening shot.",
+},
+{
+title:"SETUP",
+visual:`Show the environment and the important details connected to ${idea}.`,
+camera:"Slow push-in.",
+},
+{
+title:"DEVELOPMENT",
+visual:`Reveal a new detail that makes the situation more mysterious.`,
+camera:"Controlled handheld movement.",
+},
+{
+title:"REVEAL",
+visual:`Focus on the most interesting detail of the story.`,
+camera:"Slow dramatic movement.",
+},
+{
+title:"ENDING",
+visual:`Final cinematic image connected to the story.`,
+camera:"Slow zoom out.",
+}
+];
+}
+
+
+/* VISUAL PROMPTS */
+
+function makeVisualPrompt(idea,tone){
+
+return `Cinematic vertical 9:16 scene about ${cleanIdea(idea)}. ${tone} atmosphere, realistic lighting, detailed environment, dramatic composition, natural depth, professional short-form video aesthetic.`;
+}
+
+
+/* GENERATE */
+
+function generateKit(){
+
+let idea=document.getElementById("createIdea").value.trim();
 
 if(!idea){
-showToast("Enter your idea first.");
+alert("Enter your idea first, master sis! 😎");
 return;
 }
 
-document.getElementById("idea").value=idea;
-openScreen("create");
-generateContent();
-}
+let genre=document.getElementById("genre").value;
+let duration=document.getElementById("duration").value;
+let language=document.getElementById("language").value;
+let platform=document.getElementById("platform").value;
+let tone=document.getElementById("tone").value;
 
+let titles=makeTitles(idea,genre);
+let hooks=makeHooks(idea,genre);
+let script=makeScript(idea,duration,genre,tone,language);
+let scenes=makeScenes(idea,tone);
+let visual=makeVisualPrompt(idea,tone);
 
-function createTitleOptions(idea){
+let voice=script.join(" ");
 
-let base=idea.replace(/[^\w\s]/gi,"").trim();
+lastKit={
+idea,genre,duration,language,platform,tone,
+titles,hooks,script,scenes,visual,voice,
+date:new Date().toLocaleString()
+};
 
-if(base.length>45)base=base.substring(0,45);
-
-return[
-"The Mystery Behind "+base,
-"What Really Happened?",
-"The Story Nobody Expected",
-"This Changes Everything",
-"The Truth Behind The Mystery"
-];
-}
-
-
-function createHooks(idea){
-
-return[
-"Nobody expected this to happen...",
-"What if everything you know about this is wrong?",
-"The strange part is what happened next.",
-"Most people have never heard this story.",
-"Wait until you see what was discovered.",
-"Something about this story doesn't make sense.",
-"Here's the mystery nobody can explain.",
-"This may be one of the strangest stories you'll hear today.",
-"At first, everything looked normal...",
-"But then something completely unexpected happened."
-];
-}
-
-
-function generateScript(idea,duration,genre){
-
-if(duration==="15 seconds"){
-return`Imagine this...
-
-${idea}
-
-But something about it doesn't add up.
-
-And that's where the mystery begins.`;
-}
-
-if(duration==="60 seconds"){
-return`Imagine this...
-
-${idea}
-
-At first, everything seemed normal.
-
-But then people began noticing something unusual.
-
-Witnesses described what they saw, while others searched for an explanation.
-
-The deeper the story goes, the more questions appear.
-
-Was there a simple explanation?
-
-Or is there something we still don't understand?
-
-That's the mystery.
-
-What do you think really happened?`;
-}
-
-return`Imagine this...
-
-${idea}
-
-At first, nobody knew what was happening.
-
-Then something unusual changed the entire situation.
-
-People began asking questions, looking for answers and trying to understand what they had witnessed.
-
-But one detail made the story even more mysterious.
-
-And that's where things get interesting.
-
-What do YOU think happened?`;
-}
-
-
-function generateScenes(idea,tone){
-
-let scenes=[];
-
-for(let i=1;i<=6;i++){
-
-let names=[
-"HOOK",
-"SETUP",
-"DISCOVERY",
-"REVEAL",
-"CLIMAX",
-"ENDING"
-];
-
-scenes.push({
-name:names[i-1],
-visual:[
-"Opening cinematic shot connected to "+idea,
-"Establish the location and situation.",
-"Show the important discovery or unusual detail.",
-"Reveal the most interesting part of the story.",
-"Create the strongest dramatic moment.",
-"End with a memorable visual and CTA."
-][i-1],
-
-camera:[
-"Slow push-in",
-"Wide establishing shot",
-"Slow tracking movement",
-"Dramatic close-up",
-"Dynamic cinematic movement",
-"Slow zoom out"
-][i-1],
-
-image:
-"Vertical 9:16 cinematic image of "+idea+
-", "+tone.toLowerCase()+
-" atmosphere, realistic lighting, detailed environment, dramatic composition.",
-
-video:
-"Vertical 9:16 cinematic video showing "+idea+
-". "+tone+
-" mood, realistic motion, natural camera movement, detailed environment.",
-
-sfx:[
-"Low cinematic hit",
-"Ambient atmosphere",
-"Rising tension",
-"Dramatic impact",
-"Cinematic bass hit",
-"Soft ending ambience"
-][i-1]
-});
+renderKit();
 
 }
 
-return scenes;
-}
 
+function renderKit(){
 
-function generateContent(){
-
-const idea=document.getElementById("idea").value.trim();
-
-if(!idea){
-showToast("Enter your idea first.");
-return;
-}
-
-const genre=document.getElementById("genre").value;
-const duration=document.getElementById("duration").value;
-const language=document.getElementById("language").value;
-const platform=document.getElementById("platform").value;
-const tone=document.getElementById("tone").value;
-
-const titles=createTitleOptions(idea);
-const hooks=createHooks(idea);
-const script=generateScript(idea,duration,genre);
-const scenes=generateScenes(idea,tone);
-
-const voice=
-"[PAUSE]\n"+
-hooks[0]+
-"\n\n"+
-"[CALM] "+
-script+
-"\n\n[PAUSE]\n"+
-"What do you think?";
-
-const caption=
-"One story. One mystery. One question.\n\n"+
-"Would you have expected this?\n\n"+
-"#KEUAISHORTS";
-
-const hashtags=
-"#KEUAISHORTS #Shorts #ContentCreator #AIContent #"+
-genre.replaceAll(" ","");
-
-const pinned=
-"What do YOU think really happened? 👇";
-
-lastGenerated=
-"TITLE OPTIONS:\n"+
-titles.join("\n")+
-"\n\nHOOK OPTIONS:\n"+
-hooks.join("\n")+
-"\n\nSCRIPT:\n"+
-script+
-"\n\nVOICEOVER:\n"+
-voice+
-"\n\nCAPTION:\n"+
-caption+
-"\n\nHASHTAGS:\n"+
-hashtags+
-"\n\nPINNED COMMENT:\n"+
-pinned;
+let k=lastKit;
 
 let html=`
 
-<div class="action-row">
-<button class="secondary" onclick="copyAll()">📋 Copy All</button>
-<button class="secondary" onclick="saveProject()">💾 Save Project</button>
-<button class="secondary" onclick="generateContent()">♻️ Regenerate</button>
-</div>
-
-<div class="result-block">
-<h3>🎯 5 TITLE OPTIONS</h3>
-${titles.map((x,i)=>`
-<div class="option">
-<b>${i+1}.</b> ${escapeHTML(x)}
-</div>`).join("")}
-</div>
-
-<div class="result-block">
-<h3>🔥 5 HOOK OPTIONS</h3>
-${hooks.slice(0,5).map((x,i)=>`
-<div class="option">
-<b>${i+1}.</b> ${escapeHTML(x)}
-</div>`).join("")}
-</div>
-
-<div class="result-block">
-<h3>📝 ${duration.toUpperCase()} SCRIPT</h3>
-<p>${escapeHTML(script)}</p>
-</div>
-
-<div class="result-block">
-<h3>🎙️ VOICEOVER</h3>
-<p>${escapeHTML(voice)}</p>
-</div>
-
-<h2 class="section-title">🎬 SCENE-BY-SCENE KIT</h2>
-
-${scenes.map((s,i)=>`
-
-<div class="scene">
-
-<h3>SCENE ${i+1} — ${s.name}</h3>
-
-<div><b>👁️ Visual:</b><br>${escapeHTML(s.visual)}</div>
-
-<div><b>🎥 Camera:</b><br>${escapeHTML(s.camera)}</div>
-
-<div><b>🖼️ Image Prompt:</b><br>${escapeHTML(s.image)}</div>
-
-<div><b>🎬 Video Prompt:</b><br>${escapeHTML(s.video)}</div>
-
-<div><b>🔊 SFX:</b><br>${escapeHTML(s.sfx)}</div>
-
-</div>
-
+<div class="section-title">🎯 TITLES</div>
+<div class="card">
+<div class="result-label">5 SMART TITLE OPTIONS</div>
+${k.titles.map((x,i)=>`
+<div class="option"><b>${i+1}.</b> ${x}</div>
 `).join("")}
-
-<div class="result-block">
-<h3>📱 ${platform.toUpperCase()} CAPTION</h3>
-<p>${escapeHTML(caption)}</p>
+<div class="actions">
+<button class="btn small secondary" onclick="copyText(${JSON.stringify(k.titles.join("\\n"))})">📋 Copy Titles</button>
+</div>
 </div>
 
-<div class="result-block">
-<h3>#️⃣ HASHTAGS</h3>
-<p>${escapeHTML(hashtags)}</p>
+
+<div class="section-title">🔥 HOOK LAB</div>
+<div class="card">
+<div class="result-label">5 HOOK OPTIONS</div>
+${k.hooks.map((x,i)=>`
+<div class="option"><b>${i+1}.</b> ${x}</div>
+`).join("")}
+<div class="actions">
+<button class="btn small secondary" onclick="copyText(${JSON.stringify(k.hooks.join("\\n"))})">📋 Copy Hooks</button>
+<button class="btn small" onclick="regenerateHooks()">🔄 Regenerate</button>
+</div>
 </div>
 
-<div class="result-block">
-<h3>📌 PINNED COMMENT</h3>
-<p>${escapeHTML(pinned)}</p>
+
+<div class="section-title">🎬 SCRIPT</div>
+<div class="card">
+<div class="result-label">${k.duration}-SECOND ${k.language.toUpperCase()} SCRIPT</div>
+${k.script.map((x,i)=>`
+<div class="result-box"><b>PART ${i+1}</b><br>${x}</div>
+`).join("")}
+<div class="actions">
+<button class="btn small secondary" onclick="copyText(${JSON.stringify(k.script.join("\\n\\n"))})">📋 Copy Script</button>
 </div>
-`;
-
-document.getElementById("result").innerHTML=html;
-
-showToast("Creator Kit 2.0 created!");
-}
-
-
-function generateHooks(){
-
-const topic=document.getElementById("hookTopic").value.trim();
-
-if(!topic){
-showToast("Enter a topic first.");
-return;
-}
-
-const hooks=createHooks(topic);
-
-document.getElementById("hookResults").innerHTML=
-hooks.map((x,i)=>`
-<div class="result-block">
-<h3>HOOK ${i+1}</h3>
-<p>${escapeHTML(x)}</p>
-<button class="secondary"
-onclick="copyText(${JSON.stringify(x)})">
-📋 Copy
-</button>
 </div>
-`).join("");
-
-}
 
 
-function generateIdeas(){
-
-const niche=document.getElementById("ideaNiche").value;
-
-const ideas={
-Mystery:[
-"The abandoned place nobody can explain",
-"The photograph with a mysterious detail",
-"The disappearance that left unanswered questions",
-"The strange event witnessed by an entire town",
-"The object discovered where it shouldn't exist"
-],
-Horror:[
-"The sound recorded at exactly 3 AM",
-"The room nobody wanted to open",
-"The figure captured in an old photograph",
-"The last message before the disappearance",
-"The house with a forgotten history"
-],
-History:[
-"How people lived in the Philippines decades ago",
-"The forgotten event that changed a community",
-"The old photograph that tells a hidden story",
-"A historical place with a surprising past",
-"The tradition whose origin nobody remembers"
-],
-"UFO / UAP":[
-"The unexplained lights witnessed by multiple people",
-"A strange object seen above a city",
-"The UFO case worth revisiting",
-"What witnesses actually reported",
-"The mysterious sighting that remains unexplained"
-],
-Motivation:[
-"The day you decide not to quit",
-"What nobody tells you about success",
-"Why starting small matters",
-"How failure can become a turning point",
-"One habit that can change your routine"
-],
-Love:[
-"The message they never sent",
-"A love story separated by distance",
-"When two people meet again years later",
-"The song that reminds someone of lost love",
-"The goodbye that changed everything"
-],
-Gaming:[
-"The mistake almost every beginner makes",
-"The strategy players overlook",
-"The comeback nobody expected",
-"A trick every player should know",
-"The most unexpected gaming moment"
-],
-Music:[
-"The story behind a forgotten song",
-"Why old songs trigger memories",
-"The emotion behind a love song",
-"How the classic sound became timeless",
-"The song concept designed for nostalgia"
-],
-Business:[
-"A simple business idea for beginners",
-"The mistake new entrepreneurs make",
-"How small businesses can use AI",
-"How to organize daily sales",
-"Turning a small idea into a real product"
-],
-Educational:[
-"A fact most people learn too late",
-"The simple explanation nobody gave you",
-"Three things you should know",
-"A common misconception explained",
-"The science behind something ordinary"
-]
-};
-
-const list=ideas[niche]||ideas.Mystery;
-
-document.getElementById("ideaResults").innerHTML=
-list.map((x,i)=>`
-<div class="result-block">
-<h3>IDEA ${i+1}</h3>
-<p>${escapeHTML(x)}</p>
-<button class="secondary"
-onclick="useIdea(${JSON.stringify(x)})">
-✨ USE THIS IDEA
-</button>
+<div class="section-title">🎥 SCENE BREAKDOWN</div>
+<div class="card">
+${k.scenes.map((s,i)=>`
+<div class="result-box">
+<div class="result-label">SCENE ${i+1} — ${s.title}</div>
+<b>Visual:</b> ${s.visual}<br><br>
+<b>Camera:</b> ${s.camera}
 </div>
-`).join("");
-}
+`).join("")}
+</div>
 
 
-function useIdea(idea){
+<div class="section-title">🖼️ VISUAL PROMPT</div>
+<div class="card">
+<div class="result-box">${k.visual}</div>
+<button class="btn small secondary" onclick="copyText(${JSON.stringify(k.visual)})">📋 Copy Prompt</button>
+</div>
 
-document.getElementById("idea").value=idea;
-openScreen("create");
-showToast("Idea added!");
-}
+
+<div class="section-title">🎙️ VOICEOVER</div>
+<div class="card">
+<div class="result-box">[PAUSE]\\n\\n${k.voice}\\n\\n[PAUSE]</div>
+<button class="btn small secondary" onclick="copyText(${JSON.stringify(k.voice)})">📋 Copy Voiceover</button>
+</div>
 
 
-function saveCharacter(){
+<div class="section-title">📱 POST KIT</div>
+<div class="card">
 
-const name=document.getElementById("charName").value.trim();
+<div class="result-label">PLATFORM</div>
+<div class="result-box">${k.platform}</div>
 
-if(!name){
-showToast("Enter a character name.");
-return;
-}
+<div class="result-label">CAPTION</div>
+<div class="result-box">${makeCaption(k.idea)}</div>
 
-const character={
-name:name,
-age:document.getElementById("charAge").value,
-appearance:document.getElementById("charAppearance").value,
-personality:document.getElementById("charPersonality").value,
-world:document.getElementById("charWorld").value
-};
+<div class="result-label">HASHTAGS</div>
+<div class="result-box">${makeHashtags(k.genre)}</div>
 
-localStorage.setItem(
-"keuCharacter",
-JSON.stringify(character)
-);
+<div class="result-label">CTA</div>
+<div class="result-box">What do you think really happened? Comment your theory below. 👇</div>
 
-document.getElementById("characterResult").innerHTML=`
-<div class="character">
-<h3>👤 ${escapeHTML(character.name)}</h3>
-<p style="margin-top:10px;line-height:1.6">
-Age: ${escapeHTML(character.age)}<br><br>
-Appearance:<br>${escapeHTML(character.appearance)}<br><br>
-Personality:<br>${escapeHTML(character.personality)}<br><br>
-World:<br>${escapeHTML(character.world)}
-</p>
+<div class="actions">
+<button class="btn small secondary" onclick="saveProject()">💾 Save Project</button>
+<button class="btn small" onclick="generateKit()">🔄 Regenerate All</button>
+</div>
+
+</div>
+
+<div class="notice">
+🚀 Phase 1: AI-assisted content workflow.<br>
+Actual image, video and voice generation will be added in future versions.
 </div>
 `;
 
-showToast("Character saved!");
+document.getElementById("results").innerHTML=html;
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
+
+/* POST CONTENT */
+
+function makeCaption(idea){
+return `A story worth watching until the end. ${cleanIdea(idea)} — what would you do?`;
+}
+
+function makeHashtags(genre){
+return `#KEUAISHORTS #Shorts #${genre.replace(/[^a-zA-Z0-9]/g,"")} #Storytelling #ContentCreator #ViralVideo`;
+}
+
+
+/* REGENERATE */
+
+function regenerateHooks(){
+
+if(!lastKit)return;
+
+let extra=[
+`This started with one strange detail...`,
+`The answer was hiding in plain sight.`,
+`Everyone saw it. Almost nobody understood it.`,
+`There is more to this story than it first appears.`,
+`Watch closely, because the final detail changes everything.`
+];
+
+lastKit.hooks=extra;
+renderKit();
+}
+
+
+/* COPY */
+
+function copyText(text){
+
+navigator.clipboard.writeText(text)
+.then(()=>alert("Copied! 📋"))
+.catch(()=>{
+alert("Copy failed. Long-press the text and copy it.");
+});
+
+}
+
+
+/* SAVE PROJECT */
 
 function saveProject(){
 
-if(!lastGenerated){
-showToast("Generate a Creator Kit first.");
-return;
-}
+if(!lastKit)return;
 
-const projects=
-JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
 projects.unshift({
 id:Date.now(),
-title:document.getElementById("idea").value.substring(0,60),
-content:lastGenerated,
-date:new Date().toLocaleString()
+...lastKit
 });
 
 localStorage.setItem(
 "keuProjects",
-JSON.stringify(projects)
+JSON.stringify(projects.slice(0,30))
 );
 
-showToast("Project saved!");
+alert("Project saved! 💾🔥");
 }
 
 
-function loadProjects(){
+/* PROJECT LIST */
 
-const projects=
-JSON.parse(localStorage.getItem("keuProjects")||"[]");
+function renderProjects(){
 
-const box=document.getElementById("projectsList");
+let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let box=document.getElementById("projectList");
 
 if(!projects.length){
-
 box.innerHTML=`
-<div class="empty">
-<div style="font-size:42px">📁</div>
-<p>No projects yet.</p>
+<div class="card empty">
+📁 No saved projects yet.<br><br>
+Create a Creator Kit and tap <b>Save Project</b>.
 </div>`;
-
 return;
 }
 
 box.innerHTML=projects.map(p=>`
 <div class="project">
-<h3>${escapeHTML(p.title)}</h3>
-<p style="margin-top:5px">${escapeHTML(p.date)}</p>
+<h3>${escapeHTML(p.titles[0])}</h3>
+<p>${escapeHTML(p.genre)} • ${escapeHTML(p.platform)} • ${escapeHTML(p.date)}</p>
 
-<div class="action-row" style="margin-top:10px">
-<button class="secondary"
-onclick="viewProject(${p.id})">
-👁️ View
-</button>
-
-<button class="secondary"
-onclick="deleteProject(${p.id})">
-🗑️ Delete
-</button>
+<div class="project-actions">
+<button class="btn small" onclick="openProject(${p.id})">Open</button>
+<button class="btn small secondary" onclick="deleteProject(${p.id})">Delete</button>
 </div>
 </div>
 `).join("");
 }
 
 
-function viewProject(id){
+function openProject(id){
 
-const projects=
-JSON.parse(localStorage.getItem("keuProjects")||"[]");
-
-const p=projects.find(x=>x.id===id);
+let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let p=projects.find(x=>x.id===id);
 
 if(!p)return;
 
-alert(p.content);
+lastKit=p;
+showPage("create");
+renderKit();
 }
 
 
 function deleteProject(id){
 
-let projects=
-JSON.parse(localStorage.getItem("keuProjects")||"[]");
+let projects=JSON.parse(localStorage.getItem("keuProjects")||"[]");
 
-projects=projects.filter(x=>x.id!==id);
+projects=projects.filter(p=>p.id!==id);
 
-localStorage.setItem(
-"keuProjects",
-JSON.stringify(projects)
+localStorage.setItem("keuProjects",JSON.stringify(projects));
+
+renderProjects();
+}
+
+
+function clearProjects(){
+
+if(confirm("Delete all saved projects?")){
+
+localStorage.removeItem("keuProjects");
+renderProjects();
+
+}
+
+}
+
+
+function escapeHTML(str){
+
+return String(str)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* IDEA GENERATOR */
+
+function generateIdeas(){
+
+let ideas=[
+"A forgotten place in the Philippines with a strange history",
+"A mysterious object discovered in an old house",
+"A person receives a message from an unknown number",
+"A strange event happens at exactly midnight",
+"An ordinary photograph contains an impossible detail",
+"A local legend suddenly becomes a real mystery",
+"A small business discovers an unexpected customer",
+"A gamer notices something strange inside a familiar game"
+];
+
+let idea=ideas[Math.floor(Math.random()*ideas.length)];
+
+document.getElementById("idea").value=idea;
+goCreate();
+
+}
+
+
+/* HOOK LAB */
+
+function generateHooksOnly(){
+
+let idea=document.getElementById("idea").value.trim()||"an unexplained event";
+
+goCreate();
+
+document.getElementById("createIdea").value=idea;
+
+setTimeout(()=>{
+lastKit={
+idea,
+genre:"Storytelling",
+duration:"30",
+language:"English",
+platform:"YouTube Shorts",
+tone:"Cinematic",
+titles:makeTitles(idea,"Storytelling"),
+hooks:makeHooks(idea,"Storytelling"),
+script:makeScript(idea,"30","Storytelling","Cinematic","English"),
+scenes:makeScenes(idea,"Cinematic"),
+visual:makeVisualPrompt(idea,"Cinematic"),
+voice:makeScript(idea,"30","Storytelling","Cinematic","English").join(" "),
+date:new Date().toLocaleString()
+};
+renderKit();
+},100);
+
+}
+
+
+/* CREATOR TOOLS */
+
+function showTools(){
+
+alert(
+"🧰 CREATOR TOOLS\\n\\n"+
+"🎬 Make a Short\\n"+
+"🔥 Hook Lab\\n"+
+"💡 Idea Generator\\n"+
+"👤 Character Lock — Coming Soon\\n"+
+"📅 Content Calendar — Coming Soon\\n"+
+"🖼️ Thumbnail Lab — Coming Soon\\n"+
+"🎙️ Voice Studio — Coming Soon\\n"+
+"🎥 AI Video Generator — Coming Soon"
 );
 
-loadProjects();
-showToast("Project deleted.");
 }
 
 
-function copyAll(){
+/* START */
 
-if(!lastGenerated){
-showToast("Nothing to copy.");
-return;
-}
-
-copyText(lastGenerated);
-}
-
-
-function copyText(text){
-
-if(navigator.clipboard){
-
-navigator.clipboard.writeText(text)
-.then(()=>showToast("Copied!"))
-.catch(()=>showToast("Copy failed."));
-}
-
-}
-
-
-function showToast(message){
-
-const t=document.createElement("div");
-
-t.className="toast show";
-t.textContent=message;
-
-document.body.appendChild(t);
-
-setTimeout(()=>t.remove(),2200);
-}
-
-
-function escapeHTML(value){
-
-return String(value)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
-}
-
-loadProjects();
+showPage("home");
 
 </script>
 
