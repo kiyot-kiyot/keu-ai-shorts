@@ -660,7 +660,7 @@ function generate(idea,genre,duration,language,platform,tone){
     ];
   }else if(isMystery){
     titles=[
-      "The Mystery of "+subject,
+      "The Mystery of "+subject.replace(/^mystery behind\s+/i,""),
       "What Really Happened?",
       "What Witnesses Saw That Night",
       "The Detail Nobody Could Explain",
