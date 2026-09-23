@@ -1026,25 +1026,6 @@ function buildShareText(){
   );
 }
 
-let script=document.getElementById("script").value;
-
-return(
-"KEU AI SHORTS — CONTENT KIT\n\n"+
-"TITLE:\n"+selectedTitle+
-"\n\nHOOK:\n"+selectedHook+
-"\n\nSCRIPT:\n"+script+
-"\n\nVISUAL PROMPT:\n"+
-document.getElementById("visual").value+
-"\n\nVOICEOVER:\n"+
-document.getElementById("voiceover").value+
-"\n\nCAPTION:\n"+
-document.getElementById("caption").value+
-"\n\nHASHTAGS:\n"+
-document.getElementById("hashtags").value
-);
-}
-  
-
 function shareKit(){
 
 let text=buildShareText();
