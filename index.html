@@ -612,117 +612,218 @@ document.getElementById("tone").value
 }
 
 
-function generate(
-idea,genre,duration,language,platform,tone
-){
+function generate(idea,genre,duration,language,platform,tone){
+  let clean=idea.trim().replace(/[.!?]+$/,"");
+  let lower=clean.toLowerCase();
 
-let clean=idea.replace(/[.!?]+$/,"");
+  let subject=clean
+    .replace(/^(a|an|the)\s+/i,"")
+    .replace(/\s+(appears?|appeared|was seen|were seen|happened|occurred|was reported|were reported)\b.*$/i,"")
+    .replace(/\s+(witnessed by|according to|after|before|when)\b.*$/i,"")
+    .trim();
 
-let titles=[
-"The Mystery Behind "+clean,
-"What Really Happened When "+clean,
-"Nobody Expected This Story",
-"The Truth Behind This Story",
-"The Detail Everyone Missed"
-];
+  if(!subject) subject=clean;
 
-let hooks=[
-"Nobody expected this to happen...",
-"What if everything you knew about this was wrong?",
-"The strange part is what happened next...",
-"At first, nobody thought it was important...",
-"But then everything changed..."
-];
+  if(subject.length>55){
+    subject=subject.slice(0,55).replace(/\s+\S*$/,"");
+  }
 
-let script=
-"[HOOK]\n"+
-hooks[0]+"\n\n"+
-"[SETUP]\n"+
-"Something unusual happened involving "+clean+". "+
-"At first, people had more questions than answers.\n\n"+
-"[DEVELOPMENT]\n"+
-"The details became stranger as more information appeared. "+
-"Different possibilities started spreading, but nobody could completely explain what was happening.\n\n"+
-"[REVEAL]\n"+
-"The most interesting detail changed the way people looked at the story.\n\n"+
-"[ENDING]\n"+
-"So what do you think really happened?";
+  let location="";
+  let lm=clean.match(/\b(in|over|near|at|above|outside)\s+([^,.;]+(?:\s+[^,.;]+){0,5})/i);
+  if(lm) location=lm[2].trim();
 
-let scenes=[
-{
-name:"SCENE 1 — HOOK",
-visual:"Open with a dramatic visual representing "+clean+".",
-camera:"Fast cinematic push-in.",
-text:"Grab attention immediately."
-},
-{
-name:"SCENE 2 — SETUP",
-visual:"Show the location and establish the situation.",
-camera:"Slow cinematic tracking shot.",
-text:"Explain the basic situation."
-},
-{
-name:"SCENE 3 — REVEAL",
-visual:"Show the most mysterious or important detail.",
-camera:"Slow dramatic movement.",
-text:"Reveal the key detail."
-},
-{
-name:"SCENE 4 — ENDING",
-visual:"Final dramatic image with unanswered questions.",
-camera:"Slow zoom out.",
-text:"Ask viewers what they think."
+  let time="";
+  let tm=clean.match(/\b(at|around|during|on)\s+(midnight|dawn|dusk|night|daybreak|[^,.;]{1,25})/i);
+  if(tm) time=tm[2].trim();
+
+  let isMystery=/mystery|mysterious|strange|unexplained|unknown|ufo|uap|disappear|vanish|witness|sighting|haunt|incident/i.test(lower);
+  let isHistory=/history|historical|years ago|decades ago|19\d\d|18\d\d|war|ancient|old town/i.test(lower);
+  let isRomance=/love|relationship|heart|breakup|romance|couple/i.test(lower);
+
+  let titles;
+
+  if(isRomance){
+    titles=[
+      "The Story Behind "+subject,
+      "The Moment Everything Changed",
+      "What Happened Between Them?",
+      "The Detail They Never Forgot",
+      "One Story, One Unforgettable Moment"
+    ];
+  }else if(isHistory){
+    titles=[
+      "The Forgotten Story of "+subject,
+      "What Really Happened Here?",
+      "The Detail History Almost Lost",
+      "The Night That Changed Everything",
+      "What People Remembered Years Later"
+    ];
+  }else if(isMystery){
+    titles=[
+      "The Mystery of "+subject,
+      "What Really Happened?",
+      "What Witnesses Saw That Night",
+      "The Detail Nobody Could Explain",
+      "The Question That Still Remains"
+    ];
+  }else{
+    titles=[
+      "The Story Behind "+subject,
+      "What Really Happened?",
+      "The Detail Everyone Missed",
+      "The Moment Everything Changed",
+      "What Happened Next?"
+    ];
+  }
+
+  let locationLine=location ? " in "+location : "";
+  let timeLine=time ? " at "+time : "";
+
+  let hooks=[
+    "At first, it looked ordinary"+locationLine+timeLine+". Then something changed.",
+    "Several details point to the same moment — but the explanation is still unclear.",
+    "The most important part of this story is the detail people almost missed.",
+    "Witnesses noticed something unusual, and that raised a much bigger question.",
+    "By the end of the story, one question still remains: what really happened?"
+  ];
+
+  let selected=hooks[0];
+
+  let script=
+    "[HOOK]\n"+
+    selected+
+    "\n\n[SETUP]\n"+
+    clean+"."+
+    "\n\n[DEVELOPMENT]\n"+
+    "The reported details focus on "+subject+
+    (locationLine||timeLine)+
+    ". What happened next became the part people remembered most."+
+    "\n\n[KEY DETAIL]\n"+
+    "The key detail is that the available description does not establish a single confirmed explanation."+
+    "\n\n[ENDING]\n"+
+    "Until more reliable evidence is available, the story remains open to interpretation. What do you think happened?";
+
+  let scenes=[
+    {
+      name:"SCENE 1 — HOOK",
+      visual:"Cinematic vertical 9:16 opening focused on "+subject+".",
+      camera:"Fast push-in.",
+      text:"Introduce the unusual event immediately."
+    },
+    {
+      name:"SCENE 2 — SETUP",
+      visual:"Establish the surrounding environment"+locationLine+timeLine+", realistic documentary style.",
+      camera:"Slow tracking shot.",
+      text:"Give viewers the basic context."
+    },
+    {
+      name:"SCENE 3 — KEY DETAIL",
+      visual:"Close cinematic view of the key detail connected to "+subject+".",
+      camera:"Slow dramatic zoom.",
+      text:"Highlight the detail that matters most."
+    },
+    {
+      name:"SCENE 4 — ENDING",
+      visual:"Atmospheric final shot leaving the central question unresolved.",
+      camera:"Slow pull-back.",
+      text:"End with the question and invite discussion."
+    }
+  ];
+
+  let visual=
+    "Vertical 9:16 cinematic documentary scene about "+
+    subject+
+    locationLine+
+    timeLine+
+    ". "+
+    tone+
+    " tone, realistic lighting, natural environment, detailed textures, restrained visual storytelling, no invented logos or text.";
+
+  let voice=
+    "[PAUSE]\n"+
+    selected+
+    "\n\n"+
+    "Here's what is known from the story provided.\n\n"+
+    clean+
+    ".\n\n"+
+    "The key details raise questions, but this description alone does not prove one explanation.\n\n"+
+    "Until stronger evidence is available, the most responsible conclusion is to keep the mystery open.\n\n"+
+    "What do you think happened?";
+
+  currentKit={
+    idea,
+    genre,
+    duration,
+    language,
+    platform,
+    tone,
+    titles,
+    hooks,
+    script,
+    scenes,
+    visual,
+    voice
+  };
+
+  selectedTitle=titles[0];
+  selectedHook=hooks[0];
+
+  document.getElementById("resultInfo").innerText=
+    genre+" • "+
+    duration+" • "+
+    language+" • "+
+    platform+" • "+
+    tone;
+
+  renderTitles(titles);
+  renderHooks(hooks);
+
+  document.getElementById("scenes").innerHTML="";
+
+  scenes.forEach(function(s,i){
+    let box=document.createElement("div");
+    box.className="choice";
+
+    let title=document.createElement("b");
+    title.textContent=(i+1)+". "+s.name;
+
+    let visualText=document.createElement("div");
+    visualText.textContent="VISUAL: "+s.visual;
+
+    let cameraText=document.createElement("div");
+    cameraText.textContent="CAMERA: "+s.camera;
+
+    let sceneText=document.createElement("div");
+    sceneText.textContent="TEXT: "+s.text;
+
+    box.appendChild(title);
+    box.appendChild(document.createElement("br"));
+    box.appendChild(visualText);
+    box.appendChild(cameraText);
+    box.appendChild(sceneText);
+
+    document.getElementById("scenes").appendChild(box);
+  });
+
+  document.getElementById("script").value=script;
+  document.getElementById("visual").value=visual;
+  document.getElementById("voiceover").value=voice;
+
+  document.getElementById("caption").value=
+    titles[0]+" — "+subject+". What do you think?";
+
+  document.getElementById("hashtags").value=
+    "#KEUAISHORTS #Shorts #"+
+    (isMystery ? "Mystery" : "Storytelling")+
+    " #ContentCreator";
+
+  document.getElementById("pinned").value=
+    "What do you think really happened? 👇 Share your theory.";
+
+  incrementGenerations();
+
+  showPage("resultPage");
 }
-];
-
-let visual=
-"Cinematic vertical 9:16 scene about "+clean+
-". "+tone+" atmosphere, realistic lighting, detailed environment, "+
-"dramatic composition, professional short-form video aesthetic, "+
-"high detail, natural depth, cinematic camera, realistic textures.";
-
-let voice=
-"[PAUSE]\n"+
-hooks[1]+"\n\n"+
-"Here's what happened.\n\n"+
-clean+" became the center of attention when something unusual was discovered.\n\n"+
-"But the deeper people looked, the more questions appeared.\n\n"+
-"And until there is a clear answer, one question remains...\n\n"+
-"What do YOU think happened?";
-
-currentKit={
-idea,genre,duration,language,platform,tone,
-titles,hooks,script,scenes,visual,voice
-};
-
-selectedTitle=titles[0];
-selectedHook=hooks[0];
-
-document.getElementById("resultInfo").innerText=
-genre+" • "+duration+" • "+language+
-" • "+platform+" • "+tone;
-
-renderTitles(titles);
-renderHooks(hooks);
-
-document.getElementById("script").value=script;
-document.getElementById("visual").value=visual;
-document.getElementById("voiceover").value=voice;
-
-document.getElementById("caption").value=
-clean+" — a story that raises more questions than answers. What do you think?";
-
-document.getElementById("hashtags").value=
-"#KEUAISHORTS #Shorts #Storytelling #Mystery #ViralContent #ContentCreator";
-
-document.getElementById("pinned").value=
-"What do you think really happened? 👇 Tell me your theory.";
-
-incrementGenerations();
-
-showPage("resultPage");
-}
-
 
 /* TITLES */
 
