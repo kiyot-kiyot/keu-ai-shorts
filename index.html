@@ -617,10 +617,15 @@ function generate(idea,genre,duration,language,platform,tone){
   let lower=clean.toLowerCase();
 
   let subject=clean
-    .replace(/^(a|an|the)\s+/i,"")
-    .replace(/\s+(appears?|appeared|was seen|were seen|happened|occurred|was reported|were reported)\b.*$/i,"")
-    .replace(/\s+(witnessed by|according to|after|before|when)\b.*$/i,"")
-    .trim();
+  .replace(/^(in|on|at|around|during)\s+[^,]+,\s*/i,"")
+  .replace(/^(a|an|the)\s+/i,"")
+  .replace(/^(residents?|witnesses?|people)\s+of\s+([^,]+)\s+(reported|heard|saw|noticed|claimed|described)\s+/i,"")
+  .replace(/^(hearing|seeing|watching|noticing|reporting)\s+/i,"")
+  .replace(/^(a|an|the)\s+/i,"")
+  .replace(/\s+(appears?|appeared|was seen|were seen|happened|occurred|was reported|were reported)\b.*$/i,"")
+  .replace(/\s+(witnessed by|according to|after|before|when)\b.*$/i,"")
+  .replace(/\s+(every|each)\s+.+$/i,"")
+  .trim();
 
   if(!subject) subject=clean;
 
