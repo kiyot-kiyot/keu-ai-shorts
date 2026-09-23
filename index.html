@@ -640,6 +640,10 @@ function generate(idea,genre,duration,language,platform,tone){
   let isHistory=/history|historical|years ago|decades ago|19\d\d|18\d\d|war|ancient|old town/i.test(lower);
   let isRomance=/love|relationship|heart|breakup|romance|couple/i.test(lower);
 
+  let titleSubject=subject.replace(/\b\w/g,function(c){
+  return c.toUpperCase();
+});
+  
   let titles;
 
   if(isRomance){
@@ -660,7 +664,7 @@ function generate(idea,genre,duration,language,platform,tone){
     ];
   }else if(isMystery){
     titles=[
-      "The Mystery of "+subject.replace(/^mystery behind\s+/i,""),
+      "The Mystery of "+titleSubject,
       "What Really Happened?",
       "What Witnesses Saw That Night",
       "The Detail Nobody Could Explain",
